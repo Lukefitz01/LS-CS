@@ -32,10 +32,10 @@ let number4 = Number(prompt("Enter a number"));
 let number5 = Number(prompt("Enter another number"));
 let number6 = Number(prompt("Enter another number"));
 
-if(number4>number5,number4>number6){
+if(number4>number5&&number4>number6){
     console.log(number4,"Is the largest number")
 }
-else if(number5>number4,number5>number6){
+else if(number5>number4&&number5>number6){
     console.log(number5,"Is the largest number")
 }
 else{
@@ -48,10 +48,10 @@ let side1 = Number(prompt("Enter one side of a triangle"));
 let side2 = Number(prompt("Enter another side of the triangle"));
 let side3 = Number(prompt("Enter the last side of the triangle "));
 
-if(side1==side2,side1==side3,side2==side3){
+if(side1==side2 && side1==side3 && side2==side3){
  console.log("Your triangle is equilateral")
 }
-else if(side1!=side2,side1!=side3,side2!=side3){
+else if(side1!=side2&&side1!=side3&&side2!=side3){
     console.log("Your triangle is isosceles")
 }
 else{
