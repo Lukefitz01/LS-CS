@@ -62,7 +62,7 @@ as a variable name.
 
 */
 
-//ARITHMETHIC OPERATORS
+//            ARITHMETHIC OPERATORS
 
 //Addition
 
@@ -107,7 +107,7 @@ as a variable name.
 
 
 
-//COMPARISON OPERATORS
+//              COMPARISON OPERATORS
 
 //Equals
 
@@ -144,7 +144,7 @@ as a variable name.
 
   console.log(4 <= 5) //True
 
-//ASSIGNMENT OPERATORS
+//                    ASSIGNMENT OPERATORS
 
 // Equals
 
@@ -227,15 +227,102 @@ test condition evaluates to true */
 
   let myage = 400
 
-  if(myagee > 500){
+  if(myagee
+     > 500){
     console.log("You are over 500 years old");
   }
 
 
+// IF ELSE STATEMENT
+/* If else is also a control statement. If the test condition is true 
+it executes the code in the if block, otherwise it executes the code 
+in the else block */
+
+
+  if(myage > 500){
+    console.log("You are over 500 years old");
+  }
+  else{
+    console.log("You are not over 500 years old");
+  }
+
+//IF ELSE IF STATEMENT
+/* Similar to the two control statements above:
+This can test multiple different conditions,
+if they all fail it will rin the else condition */
+
+if(myage > 500){
+  console.log("You are over 500 years old");
+}
+else if(myage < 500){
+  console.log("You are less than 500 years old");
+}
+else{
+  console.log("You are exactly 500 years old");
+}
 
 
 
 
 
+//     5-10-22
 
+
+//                    LOGICAL OPERATORS
+
+
+// Logical AND (&&) 
+
+// Returns true if both operands are true
+
+  a = true;
+  let b = true;
+  console.log(a && b) ;//Will print true 
+
+  b = false;
+  console.log(a && b); // Will print false
+
+  let firstnumber = 10;
+  let secondnumber = 20;
+
+  if((firstnumber > 5) && (secondnumber > 15)){
+    console.log("First is greater than 5 and second is greater than 15")
+  }
+  else{
+    console.log("One of the expressions failed that test");
+  }
+
+
+// Logical OR (||) 
+// If either A or B is True then all is true
+
+  a = true;
+  b = false;
+
+  console.log(a || b); // True
+
+
+// Logical NOT (!)
+// Reverses the result if true becomes false .if False becomes true
+
+  console.log(!(a)); // False
+
+
+// Switch statement
+
+  let myVar = "A";
+
+  switch(myVar){
+
+  case "A":
+    console.log("You got an A");
+    break;
+
+  case "B":
+    console.log("you got a B");
+    break;
+
+  default:
+    console.log("Grade not recognized") ; 
+  }
 
