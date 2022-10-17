@@ -326,3 +326,41 @@ else{
     console.log("Grade not recognized") ; 
   }
 
+//               FOR LOOPS
+/*for(initialisation; test condition; increment statement){
+
+CODE will run in here if test condition is true
+
+}
+
+
+INITIALISATION: this step executes first. It only executes once. 
+You can declare and initialise a loop control variable here.
+It is optional, but you must put in a semi-colon at the end;
+
+TEST CONDITION:  If the test condition is true the blocks of code executes,
+otherwise it does not.
+
+INCREMENT STATEMENT: After the body of the loop executes, control
+goes to the increment statement which allows you to update any control
+variable values. This statement is optional but a semi colon must be at the end
+
+*/
+
+  for(let i=0; i<2; i++){
+    console.log("Hello",i)
+  }
+//We get the same output from this
+  let j = 0;
+  for(;j<2;j++){
+    console.log("Hello",j)
+  }
+//Same again
+  let k = 0;
+  for(;k<2;){
+    console.log("Hello",k);
+    k++
+  }
+
+//3 semicolons is an infinite loop
+
