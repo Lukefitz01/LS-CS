@@ -91,7 +91,7 @@ while(q2 > 0){
 
 }
 //console.log(q2)
-
+/*
 console.log("aaaaa")
 console.log(n1)
 console.log(n2)
@@ -102,10 +102,84 @@ console.log(n6)
 console.log(n7)
 console.log(n8)
 console.log(n9)
-
+*/
 if (n1 +n2 + n3 + n4 + n5 + n6 + n7+n8+n9 == q55){
     console.log(q55,"is a strong number")
 }
 else{
     console.log(q55,"is not a strong number")
+}
+
+//Q3
+
+let userNo = Number(prompt("Please enter a number"));
+
+while (userNo != 0){
+
+switch(userNo % 10){
+
+    case 1:
+
+        console.log("1");
+
+        break;
+
+    case 2:
+
+        console.log("2");
+
+        break;
+
+    case 3:
+
+        console.log("3");
+
+        break;
+
+    case 4:
+
+        console.log("4");
+
+        break;
+
+    case 5:
+
+        console.log("5");
+
+        break;
+
+    case 6:
+
+        console.log("6");
+
+        break;
+
+    case 7:
+
+        console.log("7");
+
+        break;
+
+    case 8:
+
+        console.log("8");
+
+        break;
+
+    case 9:
+
+        console.log("9");
+
+        break;
+
+    case 0:
+
+        console.log("0");
+
+        break;
+
+}
+
+userNo = Math.floor(userNo / 10);
+
 }
