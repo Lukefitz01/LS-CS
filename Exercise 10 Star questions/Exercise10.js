@@ -1,0 +1,114 @@
+// Q1
+/*
+let row1 = Number(prompt("Q1:Enter a number for rows"));
+
+
+
+for(let j= 0; j<row1; j++){
+    for (let k = 0; k<row1; k++){
+    document.write("*" );
+    }
+    document.write("<br />");
+
+}
+*/
+// Q2
+/*
+let row2 = Number(prompt("Q2:Enter a number for rows"));
+let column2 =  Number(prompt("Q2:Enter a number for columns"));
+
+for(let q= 0; q<row2; q++){
+    for (let w = 0; w<column2; w+++){
+    document.write("*" );
+    }
+    document.write("<br />");
+
+}
+
+// Q3 
+
+let row3 = Number(prompt("Q3:Enter a number for rows"));
+let column3 =  Number(prompt("Q3:Enter a number for columns"));
+let r = 0
+document.write("<pre>")
+for(let e = 0; e<row3; e++){
+    if(e == 0 || e == row3 - 1){
+        for (let o = 0; o<column3; o++){
+            document.write("*" );
+            }
+            
+    }
+        
+        
+    
+    else{
+        for ( r = 0; r<column3; ){
+    
+            if(r == 0 || r == column3 - 1){
+                document.write("*");
+                
+            }
+                document.write(" ");
+            r++
+            }
+
+
+        
+    }
+    
+
+    document.write("<br />");
+
+}
+document.write("</pre>")
+*/
+//Q4
+
+let row3 = Number(prompt("Q3:Enter a number for rows"));
+let column3 =  Number(prompt("Q3:Enter a number for columns"));
+let r = 0
+document.write("<pre>")
+for(let e = 0; e<row3; e++){
+    if(e == 0 || e == row3 - 1){
+        for (let o = 0; o<column3; o++){
+            document.write("*" );
+            }
+            
+    }
+        
+        
+    
+    else{
+         for ( r = 0; r<column3; ){
+    
+            if(r == 0 || r == column3 - 1){
+                document.write("*");
+                
+            }
+            else{
+             let countdown
+             for(let v = 0;v< column3 - 2){
+                if(v == 0 || v == column3 - 3){
+                    document.write("*");
+                }
+
+
+
+
+             }
+
+            }
+                document.write(" ");
+            r++
+            }
+           
+
+        
+    }
+    
+    
+
+    document.write("<br />");
+
+}
+document.write("</pre>")
