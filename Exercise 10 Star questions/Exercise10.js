@@ -62,53 +62,51 @@ for(let e = 0; e<row3; e++){
 }
 document.write("</pre>")
 */
+
+
 //Q4
 
-let row3 = Number(prompt("Q3:Enter a number for rows"));
-let column3 =  Number(prompt("Q3:Enter a number for columns"));
-let r = 0
+
+/*
+let size = Number(prompt("Q4:Enter a number for square"));
 document.write("<pre>")
-for(let e = 0; e<row3; e++){
-    if(e == 0 || e == row3 - 1){
-        for (let o = 0; o<column3; o++){
-            document.write("*" );
-            }
-            
+for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+        if (i == 0 || i == size - 1 || j == 0 || j == size - 1 || i == j || j == size - i - 1) {
+            document.write("* ");
+        } else {
+            document.write("  ");
+        }
     }
-        
-        
-    
-    else{
-         for ( r = 0; r<column3; ){
-    
-            if(r == 0 || r == column3 - 1){
-                document.write("*");
-                
-            }
-            else{
-             let countdown
-             for(let v = 0;v< column3 - 2){
-                if(v == 0 || v == column3 - 3){
-                    document.write("*");
-                }
+    document.write("<br />");
+}
+document.write("</pre>")
+*/
+
+// Q5
+
+let row4 = Number(prompt("Q5:Enter a number for rhombus rows"));
+document.write("<pre>")
+
+let row44 = row4 * 2
+for(let i = 0; i < row4; i++){
+
+    for (let j = 0; j < row44; j++) {
+        if(i == 0 && j > row4 - 1 || i == 1 && j > row4 - 2 && j < row44 - 1 || i == 2 && j > row4 - 3 && j < row44 - 2 || i == 3 && j > row4 -4 && j < row44 - 3|| i == 4 && j > row4 - 5 && j < row4 + 1 || i == 5 && j < row4 ){
+            document.write("* ")
+        }
+        else if
+        else{
+            document.write("  ")
+        }
 
 
 
-
-             }
-
-            }
-                document.write(" ");
-            r++
-            }
-           
-
-        
     }
-    
-    
-
     document.write("<br />");
 
 }
+
+
 document.write("</pre>")
+
