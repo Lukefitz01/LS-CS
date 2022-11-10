@@ -89,13 +89,17 @@ let row4 = Number(prompt("Q5:Enter a number for rhombus rows"));
 document.write("<pre>")
 
 let row44 = row4 * 2
+let end = row44
+let start = row4 
 for(let i = 0; i < row4; i++){
 
     for (let j = 0; j < row44; j++) {
-        if(i == 0 && j > row4 - 1 || i == 1 && j > row4 - 2 && j < row44 - 1 || i == 2 && j > row4 - 3 && j < row44 - 2 || i == 3 && j > row4 -4 && j < row44 - 3|| i == 4 && j > row4 - 5 && j < row4 + 1 || i == 5 && j < row4 ){
+        if( j > start && j < end){
             document.write("* ")
+            console.log(start,end)
+            start = start - 1
+            end = end - 1
         }
-        else if
         else{
             document.write("  ")
         }
