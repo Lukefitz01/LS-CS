@@ -1,0 +1,45 @@
+let l = 0
+while(q21 > 0 ){
+
+ lastdigit = q21 % 10;
+ console.log(lastdigit);
+
+ switch(lastdigit){
+    case 0:
+        let x = l
+        let zero = lastdigit
+        break;
+    case 1:
+        let one = lastdigit
+        break;
+    case 2:
+        let two = lastdigit
+        break;
+    case 3:
+        let three = lastdigit
+        break;
+    case 4:
+        let four = lastdigit
+        break;
+    case 5:
+        let five = lastdigit
+        break;
+    case 6:
+        let six = lastdigit
+        break;
+    case 7:
+        let seven = lastdigit
+        break;
+    case 8:
+        let eight = lastdigit
+        break;
+    case 9:
+        let nine = lastdigit
+        break;
+    
+ }
+ q21 = Math.floor(q21 / 10);
+ 
+ 
+l++
+}
