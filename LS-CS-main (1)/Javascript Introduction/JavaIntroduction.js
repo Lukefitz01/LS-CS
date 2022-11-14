@@ -452,4 +452,11 @@ a new value
 //Removing elements from an array
 /* To remove the last element from an array you can use the pop command */
 
-myArray2.pop(); // This removes the last element
+  myArray2.pop(); // This removes the last element
+
+// Empty array 
+/* To create an empty array you can use the new array() command or a pair 
+of empty square brackets */
+
+  let myArray3 = new Array();
+  let myArray4 = [];
