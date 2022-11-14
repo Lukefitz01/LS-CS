@@ -379,3 +379,77 @@ variable values. This statement is optional but a semi colon must be at the end
   }
   document.write("Leaving loop:<br>");
 
+// Continue statement
+  
+  let h = 0;
+  document.write("Entering loop:<br>");
+
+  while(h<20){
+
+  h = h + 1
+  if(h == 5){
+    continue; // skips value
+  }
+  document.write(h+"<br>");
+  }
+  document.write("Leaving loop:<br>");
+    
+
+//                    ARRAYS 
+
+/* 
+THE ARRAY OBJECT ALLOWS YOU TO STORE MULTIPLE VALUES IN A SINGLE VARIABLE
+
+IT STORES A FIXED SIZE, SEQUENTUIAL COLLECTION OF ELEMENTS OF THE SAME OF MIXEDN TYPE
+
+*/
+
+// TO CREATE AN ARRAY
+
+  let myarray = new Array("apples","oranges");
+  let myarray2 = ["apples","oranges"];
+
+
+// INDEXING
+
+/* To access elements of an array we use indexing
+indexing is when you type the array name followed by 
+square brackets.
+
+The number you put between the square brackets is the number of
+the element in the array you wish to access
+
+All arrays start with index value 0  */
+
+  document.write(myArray2[0]); // This prints apples
+  document.write(myArray2[1]); // This prints oranges
+
+
+//  CHANGING THE ELEMENT IN AN ARRAY
+
+/* To change an array element use indexing to locate
+the element and then use an assignment operation to assign 
+a new value
+*/
+
+  myarray2[0] = "Lemon"
+  document.write(myarray2[0]); // Lemon
+  document.write("<br>")
+  
+  // VERY IMPORTANT - Blank spaces error
+  document.write(myArray2)
+  myArray2[10]= "test" // will extend array, adding blank spaces until it reaches 10 and it puts test in there
+  document.write(myArray2)
+
+
+// Adding elements to array
+
+/* To add elements to an array you can use the push command.
+  They will be pushed onto the end of the array
+*/
+  myArray2.push("Lime")
+
+//Removing elements from an array
+/* To remove the last element from an array you can use the pop command */
+
+myArray2.pop(); // This removes the last element
