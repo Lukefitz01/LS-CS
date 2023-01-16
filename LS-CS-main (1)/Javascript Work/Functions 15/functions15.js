@@ -99,31 +99,29 @@ console.log(q2(array2, ns2 , yy , temp2, temp3, count0 ,count1 , count2 , count3
 
 
 // Q3
-let array3 = [1, 7 , 9 , 7 ,45 ,6 , 9]
-let w = array3.length
-let temp4 = 0
-let q = 0
-let a = 0
-let s = 0
+
 function q3(array3, w , q ,a ,s)
 {
-array3.sort();
-// console.log(array3[0,1,2,3,4,5,6,7,8]);
+
+
 if(w % 2 == 0){
 //Even
 let ww = w / 2
-    for (let t = 0; t < ww; t++) {
-        if( t == ww - 1 ){
-        // return a and s as here and there
+    for (let t = 1; t < ww + 1; t++) {
+        if( t == ww  ){
+        a = array3[ww]}
+        else if(t == ww - 2 ){
+        s = array3[ww - 1]
+
+
         }
-        else if(t = ww - 2 ){
-
-
-
-        }
-        
+       
     }  
-
+    console.log(a , s)
+    a = a + s;
+    console.log(a)
+    a = a / 2;
+    return a 
 }
 else{
 //Odd
@@ -134,4 +132,36 @@ else{
 }
 
 }
-console.log(q3(array3 , w , temp , a ,s ))
+
+let array3 = [1, 7 , 9 , 7 ,45  , 9];
+array3.sort(function(a, b) {
+    return a - b;
+  });
+console.log(array3); 
+
+let w = array3.length
+let q = 0
+let a = 0
+let s = 0
+
+console.log(q3(array3 , w , q , a ,s ))
+
+// Q4
+
+
+function q4(array4 , l , e , ee)
+{
+
+
+
+
+
+}
+
+
+let array4 = [3 , 16 , 45 , 7 , 8 , 8 , 8 , 3 ]
+let l = array4.length
+let e = 0
+let ee = 0
+
+console.log(q4(array4 , l , e , ee))
