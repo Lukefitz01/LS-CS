@@ -1,4 +1,5 @@
 // Q1
+/*
 let array = [1, 7 , 9]
 let ns = ""
 let count = 0
@@ -144,16 +145,42 @@ let q = 0
 let a = 0
 let s = 0
 
-console.log(q3(array3 , w , q , a ,s ))
+console.log(q3(array3 , w , q , a ,s , stringgg , stringggg))
+
+*/
 
 // Q4
 
 
-function q4(array4 , l , e , ee)
+function q4(array4 , l , tunoc , v , e , ee , outputnumbers)
 {
 
+    for(let vv = 0 ; vv < l ; vv++){
+
+        if(v == vv){
+
+        }
+        else if(array4[v] == array4[vv]){
+
+        tunoc = tunoc + 1
 
 
+        }
+
+
+
+
+
+    }
+    
+
+
+   
+
+
+    e = array4[v].toString()
+    ee = tunoc.toString()
+    return array4[v] + " occurs "  + tunoc + " times "
 
 
 }
@@ -161,7 +188,26 @@ function q4(array4 , l , e , ee)
 
 let array4 = [3 , 16 , 45 , 7 , 8 , 8 , 8 , 3 ]
 let l = array4.length
-let e = 0
-let ee = 0
+let tnuoc = 1
+let ee = ""
+let e = ""
+let outputnumbers = []
+for(let v = 0 ; v < l ; v++ ){
 
-console.log(q4(array4 , l , e , ee))
+    if( outputnumbers.includes(array4[v])){
+
+        
+    
+    }
+    else{
+    console.log("    ")
+    console.log(q4(array4 , l , tnuoc  , v ,e,  ee , outputnumbers))
+    tnuoc = 1
+    outputnumbers.push(array4[v])
+    
+        }
+
+
+    
+
+}
