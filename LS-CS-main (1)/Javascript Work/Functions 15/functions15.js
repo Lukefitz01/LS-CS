@@ -1,5 +1,5 @@
 // Q1
-/*
+
 let array = [1, 7 , 9]
 let ns = ""
 let count = 0
@@ -145,9 +145,9 @@ let q = 0
 let a = 0
 let s = 0
 
-console.log(q3(array3 , w , q , a ,s , stringgg , stringggg))
+console.log(q3(array3 , w , q , a ,s))
 
-*/
+
 
 // Q4
 
@@ -192,6 +192,7 @@ let tnuoc = 1
 let ee = ""
 let e = ""
 let outputnumbers = []
+
 for(let v = 0 ; v < l ; v++ ){
 
     if( outputnumbers.includes(array4[v])){
@@ -200,7 +201,6 @@ for(let v = 0 ; v < l ; v++ ){
     
     }
     else{
-    console.log("    ")
     console.log(q4(array4 , l , tnuoc  , v ,e,  ee , outputnumbers))
     tnuoc = 1
     outputnumbers.push(array4[v])
