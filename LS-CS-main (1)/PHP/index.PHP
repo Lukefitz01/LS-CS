@@ -23,6 +23,7 @@ if(2+2 == 4){
 <h3><a href="Number3.php">Number3</a></h3>
 <h3><a href="arrays.php">Arrays</a></h3>
 <h3><a href="assarray.php">Associative Arrays</a></h3>
+<h3><a href="connect.php">Connection</a></h3>
 </body>
 
 </html>
