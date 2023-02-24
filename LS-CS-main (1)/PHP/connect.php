@@ -11,8 +11,9 @@ $servername = "10.140.42.235";
 $username = "LF";
 $password = "password";
 $port = "3307";
+$database = "";
 
-$conn = mysqli_connect($servername, $username , $password);
+$conn = mysqli_connect($servername, $username , $password , $database, $port);
 
 //Check connection
 if(mysqli_connect_errno()) {

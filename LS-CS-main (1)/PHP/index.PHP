@@ -1,11 +1,19 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 
 <head>
 <link rel="stylesheet" href="style.css">
 <title>Hello World</title>
 </head>
 
-<body class="yellow">
+<body bgcolor="yellow">
+
+
+<p class = "black" >
+<ul class="black" class="center">
+<li class="currentpage" ><h3><a href="index.php">Index</a></h3></li><li><h3><a href="Strings.php">String</a></h3></li><li><h3><a href="Number3.php">Number3</a></h3></li><li><h3><a href="arrays.php">Arrays</a></h3></li><li><h3><a href="assarray.php">Associative Arrays</a></h3></li><li><h3><a href="connect.php">Connection</a></h3></li><li><h3><a href="CreateDB.php">Create DB</a></h3></li><li><h3><a href="table.php">Create Table</a></h3></li><li><h3><a href="tabledata.php">Add Table data</a></h3></li>
+
+</ul></p>
 <h1 class="center" , class="red" >  Server Homepage  </h1>
 <?php
 
@@ -19,11 +27,8 @@ if(2+2 == 4){
 
 
 ?>
-<h3><a href="Strings.php">String</a></h3>
-<h3><a href="Number3.php">Number3</a></h3>
-<h3><a href="arrays.php">Arrays</a></h3>
-<h3><a href="assarray.php">Associative Arrays</a></h3>
-<h3><a href="connect.php">Connection</a></h3>
+
+
 </body>
 
 </html>
