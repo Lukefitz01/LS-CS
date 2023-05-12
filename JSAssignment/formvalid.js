@@ -30,11 +30,11 @@ function validateform() {
     }
     result = result + last;
     if (result % 10 == 0) {
-        console.log("Valid");
+        console.log("Card Num Valid");
 
     }
     else {
-        console.log("Fraud");
+        console.log("Card Num Fraud");
     }
 
 
