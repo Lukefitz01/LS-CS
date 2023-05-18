@@ -11,6 +11,22 @@ input {
 
 }
 
+img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.wireframe {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+.wireframe1 {
+    display: flex;
+}
+
 .input {
     padding: 20px;
     margin-left: 75px;
