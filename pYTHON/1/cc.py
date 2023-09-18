@@ -52,10 +52,10 @@ for i in input1:
         
     if (ch == " "):
         ans = ans + " "
-    # check if a character is uppercase then encrypt it accordingly 
+  
     elif (i in uppercase):
         ans = ans + chr((ord(ch) + n-65) % 26 + 65)
-     # check if a character is lowercase then encrypt it accordingly
+   
         
     elif(i in lowercase):
         ans = ans + chr((ord(ch) + n-97) % 26 + 97)
