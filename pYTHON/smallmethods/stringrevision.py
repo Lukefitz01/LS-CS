@@ -48,5 +48,19 @@ else:
     
 #026
 input8 = input("input 026: ")
+vowles = ["a","e","i","o","u"]
+consonants = ["q","w","r","t","y","p","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"]
+if input8[0] in vowles:
+    input8 = input8 + "way"
+else:
+    for x in input8:    
+        if x in consonants:
+            input8 = input8.replace(x,"",1)
+            input8 = input8 + x + "ay"
+            break
+            
+input8 = input8.lower()
+print(input8)
+
 
     
