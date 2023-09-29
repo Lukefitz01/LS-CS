@@ -3,6 +3,8 @@ dic = {}
 li = []
 
 for line in f:
+    line2 = line.strip()
+    line2 = line[:-1]
     line2 = line.split(",")
     if line2[0] != "\n":
         dic.clear()
