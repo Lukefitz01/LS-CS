@@ -73,5 +73,11 @@ def onetwozero():
         print("invalid input")
         
         
-onetwozero()
+def onetwoone():
+    print("1) Add name")
+    print("2) Change name")
+    print("3) Delete name")
+    print("4) View all names")
+    print("5) End program")
+    
     
