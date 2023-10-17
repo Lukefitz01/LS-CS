@@ -113,7 +113,7 @@ count = count + 1
         max_value = v
         max_key = k
     elif count > chars.items():
-        pop
+        chars.pop()
     
 
         
