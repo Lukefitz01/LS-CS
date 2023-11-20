@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate("C:/A_Work/S/lccs-test-de459-firebase-adminsdk-rkiji-d710c81e03.json")
+cred = credentials.Certificate("C:/A_Work/S/Firebase/lccs-test-de459-firebase-adminsdk-rkiji-d710c81e03.json")
 firebase_admin.initialize_app(cred,{'databaseURL': 'https://lccs-test-de459-default-rtdb.europe-west1.firebasedatabase.app/'})
 #ref = db.reference() # / is referencing root of data base. the data page (assuming nothing in bracket)
 # info needs to be in dict format
