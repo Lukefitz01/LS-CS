@@ -3,14 +3,16 @@ import time
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-
-cred = credentials.Certificate("C:/A_Work/S/Firebase/lccs-test-de459-firebase-adminsdk-rkiji-d710c81e03.json")
+#C:/Users/18LFitzpatric.ACC/OneDrive/6th yr CS/PYTHON/Firebase/lccs-test-de459-firebase-adminsdk-rkiji-d710c81e03.json
+# C:/A_Work/S/Firebase/lccs-test-de459-firebase-adminsdk-rkiji-d710c81e03.json
+cred = credentials.Certificate("C:/Users/18LFitzpatric.ACC/OneDrive/6th yr CS/PYTHON/Firebase/lccs-test-de459-firebase-adminsdk-rkiji-d710c81e03.json")
 firebase_admin.initialize_app(cred,{'databaseURL': 'https://lccs-test-de459-default-rtdb.europe-west1.firebasedatabase.app/'})
 
 ser = serial.Serial()
 ser.baudrate = 115200
 ser.port = "COM3"
 ser.open()
+
 
 ref = db.reference()
 ref.update({'Temp log':''})
