@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartJS Test</title>
+    <style>
+        body {text-align: center;}
+    </style>
+    <!-- load the chartJS module -->
+    <script type="module" src="https://unpkg.com/chart.js@4.2.1/dist/chart.umd.js"></script>
+</head>
+<body>
+    
+    <div id="livegraph">
+        <canvas id="timeChart"></canvas>
+    </div>
+
+    <script type="module">
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDBmABRTA4jp1OcSJvLW6x6Z6EGq5-aRTk",
+        authDomain: "lccs-test-de459.firebaseapp.com",
+        databaseURL: "https://lccs-test-de459-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "lccs-test-de459",
+        storageBucket: "lccs-test-de459.appspot.com",
+        messagingSenderId: "898915069985",
+        appId: "1:898915069985:web:48927bd5e7485dba01b360"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+        
+      import {getDatabase, ref, onChildAdded} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+    
+        
+      const ctx = document.getElementById('timeChart');
+      const db = getDatabase();//get a link to the database     
+      const commentsRef = ref(db, "temperature_log/");//set the reference to the node you want to use
+       
+
+// Find each value added to the database and get it ready for graphing
+        onChildAdded(commentsRef, (data) => {
+  console.log(data.key, data.val());
+            var date = new Date(data.key * 1000)
+            let mm = date.getMonth() + 1; // Months start at 0!
+        let dd = date.getDate();
+        let hr = date.getHours();
+        let mn = date.getMinutes();
+        let sc = date.getSeconds();
+        
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+        if (mn < 10) mn = '0' + mn;
+        
+        const formatteddate = dd + '_' + mm + ' ' + hr +':'+ mn +':'+ sc;
+            console.log(formatteddate)
+           chart.data.labels.push(formatteddate);//add the key to the labels on the x-axis
+           chart.data.datasets[0].data.push(data.val().Temperature);//add the temperature to the y-axis
+           chart.data.labels = chart.data.labels.slice(-30); //neagtive slice to only show 
+           chart.data.datasets[0].data = chart.data.datasets[0].data.slice(-30);//the last 30 values on each axis
+           chart.update('none');//don't do any animation           
+         });
+        
+// Create a chart object for our chart. Inside data - line 82: we need to set labels to an empty list
+// also in  datasets - line 85 we set data to an empty list. This is where our data goes.
+        var chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [], 
+        datasets: [{
+          label: 'Temperature trace',
+          data: [],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+        </script>
+
+
+
+</body>
+</html>
