@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase v10</title>
+</head>
+
+<body>
+
+    <label>first Name</label><input id="FnameInp" type="text"> <br><br>
+
+    <label>Last Name </label><input id="LnameInp" type="text"><br><br>
+
+    <label>Department</label><select id="DeptInp">
+        <option value="Development">Development</option>
+        <option value="Testing">Testing</option>
+        <option value="Management">Management</option>
+        <option value="Administration">Administration</option>
+    </select>
+    <br><br>
+
+    <label>Can Swim</label>
+    <select id="SwimInp">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    <br><br>
+
+    <label>CNIC</label>
+    <input type="number" id="CnicInp">
+
+    <button id="AddBtn">Add</button>
+    <button id="RetBtn">Retreive</button>
+    <button id="UpdBtn">Update</button>
+    <button id="DelBtn">Delete</button>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyADFbm7eOAYc9ikVduSPEF_i_sKDDpfRY8",
+            authDomain: "fire10db-5cdc9.firebaseapp.com",
+            databaseURL: "https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "fire10db-5cdc9",
+            storageBucket: "fire10db-5cdc9.appspot.com",
+            messagingSenderId: "754388872821",
+            appId: "1:754388872821:web:b3ff18d3df16964eac123c"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, get, child, update, remove }
+            from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+
+        const db = getDatabase();
+
+        let FnameInp = document.getElementById('FnameInp');
+        let LnameInp = document.getElementById('LnameInp');
+        let DeptInp = document.getElementById('DeptInp');
+        let SwimInp = document.getElementById('SwimInp');
+        let CnicInp = document.getElementById('CnicInp');
+
+        let AddBtn = document.getElementById('AddBtn');
+        let RetBtn = document.getElementById('RetBtn');
+        let UpdBtn = document.getElementById('UpdBtn');
+        let DelBtn = document.getElementById('DelBtn');
+
+
+        function AddData() {
+            set(ref(db, 'EmployeeSet/' + CnicInp.value), {
+                nameofemployee: { firstname: FnameInp.value, lastname: LnameInp.value },
+                department: DeptInp.value,
+                canswim: (SwimInp.value == 'yes'),
+                cnic: Number(CnicInp.value)
+            }).then(() => {
+                alert('data added');
+            }).catch(() => {
+                alert('Unsuccessful')
+                console.log(error)
+            })
+        }
+
+        function RetData() {
+            const dbRef = ref(db);
+
+            get(child(dbRef, 'EmployeeSet/' + CnicInp.value)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    FnameInp.value = snapshot.val().nameofemployee.firstname;
+                    LnameInp.value = snapshot.val().nameofemployee.lastname;
+                    DeptInp.value = snapshot.val().department;
+                    SwimInp.value = (snapshot.val().canswim) ? "yes" : "no";
+
+                }
+                else {
+                    alert("employee no exist")
+                }
+            })
+            /* .catch(() => {
+                 alert('Unsuccessful');
+                 console.log(error);
+                 //console.error(message)
+             })*/
+
+        }
+
+        function UpdateData() {
+            update(ref(db, 'EmployeeSet/' + CnicInp.value), {
+                nameofemployee: { firstname: FnameInp.value, lastname: LnameInp.value },
+                department: DeptInp.value,
+                canswim: (SwimInp.value == 'yes'),
+            }).then(() => {
+                alert('data updated');
+            }).catch(() => {
+                alert('Unsuccessful');
+                console.log(error);
+            })
+        }
+
+        function DeleteData() {
+            remove(ref(db, 'EmployeeSet/' + CnicInp.value))
+                .then(() => {
+                    alert('data deleted');
+                }).catch(() => {
+                    alert('Unsuccessful')
+                    console.log(error);
+                })
+        }
+
+        AddBtn.addEventListener('click', AddData)
+        RetBtn.addEventListener('click', RetData)
+        UpdBtn.addEventListener('click', UpdateData)
+        DelBtn.addEventListener('click', DeleteData)
+    </script>
+
+</body>
+
+</html>

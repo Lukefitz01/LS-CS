@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="button.js"></script>
+    <title>Main Page</title>
+</head>
+
+<body class="">
+    <header class="header">
+        <div class="">
+            <div class="">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="whatif.html">What if</a></li>
+                    <li><a href="graph.html">Past Results</a></li>
+                    <li><a href="a.html">Placeholder</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="mainbody">
+        <div class="toptext">
+            <h1>What if?</h1>
+        </div>
+        <div class="top">
+            <div class="image">
+                <img src="Images/asian-male-construction-worker-thinking-260nw-2230323527-1398327032.jpg"
+                    alt="Construction Worker Thinking">
+            </div>
+            <div class="text1">
+                <p>Welcome to the "What if" page. This page will answer the questions "What if the user was to take up a
+                    sport?" and "What if the user was to take a break from their manual labour?" using the reaction time
+                    data, Temperature data combined with the data inputted from the form below.
+                </p>
+                <p>
+                    To start , fill out the form below, then press the "Submit" button then the "Show button" to get
+                    your results
+                </p>
+            </div>
+        </div>
+        <div class="form">
+            <div class="">
+                <div class="margin1">
+                    <label>Age</label><input class="margin2" id="age" type="number">
+                </div>
+                <div class="margin1">
+                    <label>Gender</label><select class="margin2" id="gen">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <button id="submit">Submit</button>
+
+        </div>
+        <div class="bottomtext">
+            <p>Want to visit the homepage? <a href="index.html">Home</a></li> page.</p>
+            <p>Want to see all your past results? check out the
+                <a href="graph.html">Past Results</a> page
+            </p>
+        </div>
+    </div>
+    <script type="module">
+        // find real data for calculations
+        // Bring all data together for calculations
+        // display this to the user
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyADFbm7eOAYc9ikVduSPEF_i_sKDDpfRY8",
+            authDomain: "fire10db-5cdc9.firebaseapp.com",
+            databaseURL: "https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "fire10db-5cdc9",
+            storageBucket: "fire10db-5cdc9.appspot.com",
+            messagingSenderId: "754388872821",
+            appId: "1:754388872821:web:b3ff18d3df16964eac123c"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, get, child, update, remove }
+            from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+
+        const db = getDatabase();
+
+
+
+        let Age = document.getElementById('age');
+        let gen = document.getElementById('gen');
+        let time = 0
+        let form = document.getElementById('submit');
+
+        function validateform() {
+
+            if (document.getElementById("age").value == "") {
+                alert("Please provide age!");
+                return false;
+            }
+
+            else {
+                console.log("Form Success")
+            }
+
+
+            time = (new Date()).getTime() / 1000;
+            time = Math.round(time)
+            set(ref(db, 'UserLog/' + time), {
+                age: Number(Age.value),
+                gender: gen.value
+            }).then(() => {
+                alert('Form Submitted');
+            }).catch(() => {
+                alert('Unsuccessful')
+                console.log(error)
+            })
+
+
+        }
+        form.addEventListener('click', validateform)
+
+
+
+    </script>
+</body>
+
+</html>
