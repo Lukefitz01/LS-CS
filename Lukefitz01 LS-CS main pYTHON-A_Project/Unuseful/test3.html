@@ -1,0 +1,37 @@
+<script>
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyADFbm7eOAYc9ikVduSPEF_i_sKDDpfRY8",
+        authDomain: "fire10db-5cdc9.firebaseapp.com",
+        databaseURL: "https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "fire10db-5cdc9",
+        storageBucket: "fire10db-5cdc9.appspot.com",
+        messagingSenderId: "754388872821",
+        appId: "1:754388872821:web:b3ff18d3df16964eac123c"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+
+    import { getDatabase, ref, set, get, child, update, remove }
+        from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+
+    const db = getDatabase();
+    time = (new Date()).getTime() / 1000;
+    set(ref(db, 'TestLog/' + time), {
+        age: Number(Age.value),
+        gender: gen.value
+    }).then(() => {
+        alert('data added');
+    }).catch(() => {
+        alert('Unsuccessful')
+        console.log(error)
+    })
+</script>
+
+</body>
+
+</html>
