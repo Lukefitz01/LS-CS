@@ -55,11 +55,40 @@
 
                     </select>
                 </div>
+                <div class="margin1">
+                    <label>Time since last break (mins)</label><input class="margin2" id="wtime" type="number">
+                </div>
             </div>
 
 
             <button id="submit">Submit</button>
+        </div>
+            <div class="microbittext">
+                <p>Press the button to find the answers to the "what if" questions </p>
+            </div>
+            <div class="form">
+                <button id="Button2">Button</button>
+            </div>
+            <div class="full">
+            <div class="left">
+                <p>"What if the user was to take up a sport?</p>
+                <div class="text333"><p>Your reaction time is:</p>
+                <p id=""></div>
+                <div class="text333"><p>This is </p>
+                <p id="">
+                <p>Precent </p>
+                <p id="">
+                <p>Normal for your age and gender</p></div>
 
+                <div class="text333">Based on this, the sports you should consider taking up are:</div>
+                <p id="">
+            </div>
+            <div class="right">
+                <p>What if the user was to take a break from their manual labour?</p>
+                <p>Based on the inputted information, and the temperature in your area, you</p>
+                <p id="">
+                <p>take a break for 10 mins</p>
+            </div>
         </div>
         <div class="bottomtext">
             <p>Want to visit the homepage? <a href="index.html">Home</a></li> page.</p>
@@ -67,7 +96,7 @@
                 <a href="graph.html">Past Results</a> page
             </p>
         </div>
-    </div>
+    
     <script type="module">
         // time working box  + data add
         // IF avg Rtime > num (dependinh), give list of sprts 
@@ -100,6 +129,7 @@
 
         let Age = document.getElementById('age');
         let gen = document.getElementById('gen');
+        let wtime = document.getElementById('wtime');
         let time = 0
         let form = document.getElementById('submit');
 
@@ -119,7 +149,8 @@
             time = Math.round(time)
             set(ref(db, 'UserLog/' + time), {
                 age: Number(Age.value),
-                gender: gen.value
+                gender: gen.value,
+                working: wtime.value
             }).then(() => {
                 alert('Form Submitted');
             }).catch(() => {
