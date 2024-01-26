@@ -133,6 +133,7 @@
         let time = 0
         let form = document.getElementById('submit');
 
+
         function validateform() {
 
             if (document.getElementById("age").value == "") {
@@ -162,8 +163,46 @@
         }
         form.addEventListener('click', validateform)
 
+        let displaybutton =  document.getElementById('Button2');
+        displaybutton.addEventListener('click', validateform);
+        let M15 = 0
+        let M16 = 0
+        let M21 = 0
+        let M26 = 0
+        let M31 = 0
+        let M36 = 0
+        let M41 = 0
+        let M46 = 0
+        let M51 = 0
+        let M56 = 0
+        let M61 = 0
+        let F15 = 0
+        let F16 = 0
+        let F21 = 0
+        let F26 = 0
+        let F31 = 0
+        let F36 = 0
+        let F41 = 0
+        let F46 = 0
+        let F51 = 0
+        let F56 = 0
+        let F61 = 0
+        function displaydata(){
+            const dbRef = ref(db);
 
+            get(child(dbRef, 'MRTimeSet/')).then((snapshot) => {
+                if (snapshot.exists()) {
+                    M15 = snapshot.val().-15.RTime;
+                    
+                   
 
+                }
+                else {
+                    alert("employee no exist")
+                }
+            })
+
+                    }
     </script>
 </body>
 
