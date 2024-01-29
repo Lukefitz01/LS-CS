@@ -99,7 +99,7 @@
     
     <script type="module">
         // time working box  + data add
-        // IF avg Rtime > num (dependinh), give list of sprts 
+        // IF avg Rtime > num (dependinh), give list of sprts (30% of normal) 
         // If time working > num and temp > num , tell user to/not to take break
         // display this to the user
 
@@ -164,7 +164,8 @@
         form.addEventListener('click', validateform)
 
         let displaybutton =  document.getElementById('Button2');
-        displaybutton.addEventListener('click', validateform);
+        displaybutton.addEventListener('click', displaydata);
+
         let M15 = 0
         let M16 = 0
         let M21 = 0
@@ -187,20 +188,166 @@
         let F51 = 0
         let F56 = 0
         let F61 = 0
+
+        let var1 = 0
         function displaydata(){
             const dbRef = ref(db);
+            //console.log(dbRef)
 
-            get(child(dbRef, 'MRTimeSet/')).then((snapshot) => {
+            get(child(dbRef,'MRTimeSet/')).then((snapshot) => {
                 if (snapshot.exists()) {
-                    M15 = snapshot.val().-15.RTime;
+                   // M15 = snapshot.val()
+                    //console.log(M15)    
                     
+                    snapshot.forEach((childSnapshot)=> {
+                        const childKey = childSnapshot.key;
+                        const childData = childSnapshot.val().RTime;
+                       // console.log(childData);
+
+                        if (var1 == 0) {
+                            M15 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 1) {
+                            M16 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 2) {
+                            M21 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 3) {
+                            M26 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 4) {
+                            M31 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 5) {
+                            M36 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 6) {
+                            M41 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 7) {
+                            M46= childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 8) {
+                            M51 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 9) {
+                            M56 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 10) {
+                            M61 = childData;
+                            var1 = 0
+
+                            // console.log(M36,M61)
+                        }
+                    })
                    
 
                 }
                 else {
-                    alert("employee no exist")
+                    alert("data no exist 1 ")
                 }
             })
+
+            get(child(dbRef,'FRTimeSet/')).then((snapshot) => {
+                if (snapshot.exists()) {
+                   // M15 = snapshot.val()
+                    //console.log(M15)    
+                    
+                    snapshot.forEach((childSnapshot)=> {
+                        const childKey = childSnapshot.key;
+                        const childData = childSnapshot.val().RTime;
+                        //console.log(childData);
+
+                        if (var1 == 0) {
+                            F15 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 1) {
+                            F16 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 2) {
+                            F21 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 3) {
+                            F26 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 4) {
+                            F31 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 5) {
+                            F36 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 6) {
+                            F41 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 7) {
+                            F46= childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 8) {
+                            F51 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 9) {
+                            F56 = childData;
+                            var1 = var1 + 1
+                        }
+                        else if (var1 == 10) {
+                            F61 = childData;
+                            var1 = var1 + 1
+
+                            //console.log(F36,F61)
+                        }
+                    })
+                   
+
+                }
+                else {
+                    alert("data no exist")
+                }
+            })
+
+            // finding age 
+            get(child(dbRef,'UserLog/')).then((snapshot) => {
+                if (snapshot.exists()) {
+                   // M15 = snapshot.val()
+                    //console.log(M15)    
+                    
+                    snapshot.forEach((childSnapshot)=> {
+                        const childKey = childSnapshot.key;
+                        const childData = childSnapshot.val().RTime;
+                        console.log(childKey,childData);
+
+                       
+                    })
+                   
+
+                }
+                else {
+                    alert("data no exist 3 ")
+                }
+            })
+
+
+
+
 
                     }
     </script>
