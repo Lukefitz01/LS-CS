@@ -190,6 +190,15 @@
         let F61 = 0
 
         let var1 = 0
+
+        let usernum = 0
+        let age1 = 0
+        let gender1 = ""
+        let working1 = 0
+
+        let reactionnum = 0
+        let temp1 = 0
+        let Rtime1  = 0 
         function displaydata(){
             const dbRef = ref(db);
             //console.log(dbRef)
@@ -324,20 +333,23 @@
                 }
             })
 
-            // finding age 
-            get(child(dbRef,'UserLog/')).then((snapshot) => {
-                if (snapshot.exists()) {
-                   // M15 = snapshot.val()
-                    //console.log(M15)    
+            get(child(dbRef,'ProjReactionLog/')).then((snapshot) => {
+                if (snapshot.exists()) {    
                     
                     snapshot.forEach((childSnapshot)=> {
                         const childKey = childSnapshot.key;
-                        const childData = childSnapshot.val().RTime;
-                        console.log(childKey,childData);
+                        const childDataTime= childSnapshot.val().ReactionTime;
+                        const childDataTemp = childSnapshot.val().Temp;
+                        
+                        console.log(childKey,childDataTime,childDataTemp );
 
+                       reactionnum = childKey;
+                       temp1 = childDataTemp ;
+                       Rtime1 =  childDataTime;
                        
+                
                     })
-                   
+                   console.log(reactionnum ,temp1 , Rtime1);
 
                 }
                 else {
@@ -346,6 +358,60 @@
             })
 
 
+             
+            get(child(dbRef,'UserLog/')).then((snapshot) => {
+                if (snapshot.exists()) {
+                   // M15 = snapshot.val()
+                    //console.log(M15)    
+                    
+                    snapshot.forEach((childSnapshot)=> {
+                        const childKey = childSnapshot.key;
+                        const childDataAge = childSnapshot.val().age;
+                        const childDataGen = childSnapshot.val().gender;
+                        const childDataWork = childSnapshot.val().working;
+                        console.log(childKey,childDataAge,childDataGen , childDataWork);
+
+                       usernum = childKey;
+                       age1 = childDataAge;
+                       gender1 = childDataGen;
+                       working1 = childDataWork;
+                
+                    })
+                   console.log(usernum ,age1 ,gender1 , working1);
+
+                }
+                else {
+                    alert("data no exist 3 ")
+                }
+            })
+            if (age < 16){
+
+            }
+            else if (age > 15 && age < 21){
+
+            }
+            else if (age > 20  && age < 26){
+            }
+            else if (age > 25 && age < 31){
+            }
+            else if (age > 30 && age < 36){
+            }
+            else if (age > 35 && age < 41){
+            }
+            else if (age > 40 && age < 46){
+            }
+            else if (age > 45 && age < 51){
+            }
+            else if (age > 50 && age < 56){
+            }
+            else if (age > 55 && age < 61){
+            }
+            else if (age > 61){
+            }
+            
+            
+
+            
 
 
 
