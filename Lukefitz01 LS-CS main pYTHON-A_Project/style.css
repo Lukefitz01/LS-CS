@@ -113,3 +113,13 @@ li a:hover {
     margin-left: 10px;
 
 }
+
+.full {
+    display: flex;
+    justify-content: space-around;
+}
+
+.text333 {
+    display: flex;
+    align-items: center;
+}
