@@ -8,12 +8,14 @@ from firebase_admin import db
 
 #https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app/
 #C:/A_Work/S/LS-CS-main/pYTHON/A_Project/fire10db-5cdc9-firebase-adminsdk-60918-83f459e38a.json
-cred = credentials.Certificate("C:/A_Work/S/LS-CS-main/pYTHON/A_Project/fire10db-5cdc9-firebase-adminsdk-60918-83f459e38a.json")
+#C:/A_Work/S/LS-CS-main/pYTHON/A_Project/fire10db-5cdc9-firebase-adminsdk-60918-83f459e38a.json
+# C:/Users/18LFitzpatric.ACC/Downloads/LS-CS-main/LS-CS-main/Lukefitz01 LS-CS main pYTHON-A_Project/fire10db-5cdc9-firebase-adminsdk-60918-83f459e38a.json
+cred = credentials.Certificate("C:/Users/18LFitzpatric.ACC/Downloads/LS-CS-main/LS-CS-main/Lukefitz01 LS-CS main pYTHON-A_Project/fire10db-5cdc9-firebase-adminsdk-60918-83f459e38a.json")
 firebase_admin.initialize_app(cred,{'databaseURL': 'https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app/'})
 
 ser = serial.Serial()
 ser.baudrate = 115200
-ser.port = "COM5"
+ser.port = "COM7"
 ser.open()
 
 

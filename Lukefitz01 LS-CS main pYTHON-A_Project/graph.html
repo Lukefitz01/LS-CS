@@ -80,7 +80,13 @@
                     //const childDataTemp = childSnapshot.val().Temp;
 
                     console.log(childKey, childDataTime);
-                    childDataTime = "0." + childDataTime
+                    if (childDataTime.length  == 2){
+                        childDataTime = "0.0" + childDataTime
+                    }
+                    else{
+                        childDataTime = "0." + childDataTime
+                    }
+                    
                     console.log(childKey, childDataTime);
                     if (var1 == 0) {
                         R1n = childKey;
@@ -147,16 +153,16 @@
 
 
                 })
-                //console.log("PROJRLOG", reactionnum, temp1, Rtime1);
+                console.log("PROJRLOG", R1,R1n, R10, R10n);
 
             }
             else {
                 alert("data no exist 3 ")
             }
-        })
 
-        let xValues = [R1n, R2n, R3n, R4n, R5n, R6n, R7n, R8n, R9n, R10n]; // put random nums from db in here
-        let yValues = [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10]; // put rtimes in here
+            console.log(R1,R2, R3, R4);
+        const xValues = [R1n, R2n, R3n, R4n, R5n, R6n, R7n, R8n, R9n, R10n]; // put random nums from db in here
+        const yValues = [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10];
         let barColors = ["red", "green", "blue", "orange", "brown", "red", "green", "blue", "orange", "brown"]; // fine
 
         new Chart("myChart", {
@@ -176,6 +182,19 @@
                 }
             }
         });
+        })
+        //const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+        //const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+        //let xValues = [R1n, R2n, R3n, R4n, R5n, R6n, R7n, R8n, R9n, R10n]; // put random nums from db in here
+        //let yValues = [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10]; // put rtimes in here
+        
+        
+        console.log(R1,R2, R3, R4);
+        const xValues = [R1n, R2n, R3n, R4n]; // put random nums from db in here
+        const yValues = [R1, R2, R3, R4];
+        let barColors = ["red", "green", "blue", "orange", "brown", "red", "green", "blue", "orange", "brown"]; // fine
+
+        
     </script>
 </body>
 
