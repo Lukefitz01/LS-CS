@@ -30,7 +30,7 @@ while True:
     mb_re = str(ser.readline().decode("utf-8"))
     
     mb_re = mb_re.replace(" ","")
-    mb_re = mb_re.replace("\r\n","") # same upto here
+    mb_re = mb_re.replace("\r\n","") 
     testing = len(mb_re)
     mb_temp = mb_re[-2:]
     mb_re = mb_re[0:testing - 3]
