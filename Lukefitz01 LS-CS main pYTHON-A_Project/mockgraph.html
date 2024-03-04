@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <title>Past Results 2</title>
+    <title>Past Results</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
                 <ul class="list1">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="whatif.html">What if</a></li>
-                    <li><a href="graph.html">Past Results</a></li>
+                    <li><a href="mockgraph.html">Past Results</a></li>
                     <li><a href="text.html">Project Theroy</a></li>
                 </ul>
             </div>
@@ -25,6 +25,7 @@
 
     </header>
     <canvas id="myChart" style="width:100%;max-width:90%"></canvas>
+    <p id="Message"></p>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 
@@ -453,14 +454,16 @@
                                     hmm = total12 / M15;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M15;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -470,14 +473,16 @@
                                     hmm = total12 / F15;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F15;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -489,14 +494,16 @@
                                     hmm = total12 / M16;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M16;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -506,14 +513,16 @@
                                     hmm = total12 / F16;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F16;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -525,14 +534,16 @@
                                     hmm = total12 / M21;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M21;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -542,14 +553,16 @@
                                     hmm = total12 / F21;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F21;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -561,14 +574,16 @@
                                     hmm = total12 / M26;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M26;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -578,14 +593,16 @@
                                     hmm = total12 / F26;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F26;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -597,14 +614,16 @@
                                     hmm = total12 / M31;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M31;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -614,14 +633,16 @@
                                     hmm = total12 / F31;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F31;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -633,14 +654,16 @@
                                     hmm = total12 / M36;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M36;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -650,14 +673,16 @@
                                     hmm = total12 / F36;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F36;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -670,14 +695,16 @@
                                     hmm = total12 / M41;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M41;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -687,14 +714,16 @@
                                     hmm = total12 / F41;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F41;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -706,14 +735,16 @@
                                     hmm = total12 / M46;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M46;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -723,14 +754,16 @@
                                     hmm = total12 / F46;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F46;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -742,14 +775,16 @@
                                     hmm = total12 / M51;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M51;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                
                                 }
@@ -759,14 +794,16 @@
                                     hmm = total12 / F51;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F51;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. "
                                
                                 }
@@ -778,14 +815,16 @@
                                     hmm = total12 / M56;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M56;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. "
                                
                                 }
@@ -795,14 +834,16 @@
                                     hmm = total12 / F56;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F56;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender."
                                
                                 }
@@ -814,14 +855,16 @@
                                     hmm = total12 / M61;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / M61;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. "
                                
                                 }
@@ -831,34 +874,38 @@
                                     hmm = total12 / F61;
                                     hmm = hmm - 1
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
                                 }
                                 else{
                                     hmm = total12 / F61;
                                     hmm = 1 - hmm
                                     hmm = String(hmm)
-                                    THE_MESSAGE = "Your average reaction time is"
+                                    hmm = hmm[0] + hmm[1] + hmm[2] +hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
                                     THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender."
                                
                                 }
                             }
 
                         }
-                       
+                        document.getElementById("Message").innerHTML = THE_MESSAGE;
+                        //console.log(THE_MESSAGE)
         
-
+                        myFunction2()
 
                     }
                     else {
                         alert("data no exist 3 ")
                     }
+                   
                 })
 
-            
-        }) 
-    
+       
 
+        }) 
+        
 
         //const xValues = [50,60,70,80,90,100,110,120,130,140,150];
         //const yValues = [7,8,8,9,9,9,10,11,14,14,15];

@@ -17,7 +17,7 @@
                 <ul class="list1">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="whatif.html">What if</a></li>
-                    <li><a href="graph.html">Past Results</a></li>
+                    <li><a href="mockgraph.html">Past Results</a></li>
                     <li><a href="text.html">Project Theroy</a></li>
                 </ul>
             </div>
@@ -60,6 +60,7 @@
         <div class="rtimee">
             <p>Your Reaction time was: </p>
             <p id="rtime">
+            <p> seconds</p>
         </div>
 
         <div class="bottomtext">
@@ -116,9 +117,9 @@
             if (snapshot.exists()) {
                 console.log(snapshot)
                 snapshot.forEach((sn) => {
-                    console.log(sn.key)
+                    //console.log(sn.key)
                     numsset.push(Number(sn.key))
-                    console.log(numsset)
+                    //console.log(numsset)
 
                 })
                 //console.log(get(snapshot, '1704117443'))
@@ -146,7 +147,7 @@
                 if (snapshot.exists()) {
                     //console.log("awswssss")
                     ReactionTime = snapshot.val().ReactionTime;
-
+                    ReactionTime = ReactionTime * 0.001
 
                 }
                 else {
