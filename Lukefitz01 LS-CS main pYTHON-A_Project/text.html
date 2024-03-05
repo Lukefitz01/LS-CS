@@ -46,7 +46,74 @@
     <p>The system will use Python and JavaScript to make a graph of the user's reaction times which will be a data input for the “what if” questions. </p>
     <p>These “what if” questions will be: “What if the user was to take up a sport?” with the parameters of Age, Gender and Reaction time. The second what if question will be: “What if the user was to take a break from their manual labour?” with the parameters of Reaction time, Age and Temperature </p>
     
-    
+    <div class="image">
+        <img src="Images/flowchart/flow0.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow1.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow2.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow3.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow4.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow5.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow6.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow7.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow8.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow9.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow10.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow11.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow12.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow13.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow14.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/flow15.PNG"
+            alt="Flowchart">
+    </div>
+    <div class="image">
+        <img src="Images/flowchart/cd.PNG"
+            alt="Circut Diagram">
+    </div>
     
     <p>For the technologies I will use, I will use the microbit. The microbit is a hardware ARM-based embedded system. It will be used in showing the 5 lights for the reaction time game ,audio output and temperature input.  </p>
     <p>Other technologies I will use include:</p>
@@ -58,9 +125,213 @@
     <p>Google Firebase is a backend cloud computing service and application development platform. It will be used to store the input data and other data required for the project. </p>
    
     <h2>Create</h2>
+    <p>Week 1:</p>
+    <ul class="textlist">
+        <li>Wrote code in makecode to make the reaction time game on the microbit </li>
+        <li>Overcame the problem of deciding on the idea I have decided to pursue. </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk1.PNG"
+            alt="code wk1">
+            <img src="Images/code_wk1_2.PNG"
+            alt="code wk1">
+    </div>
+    <p>Week 2:</p>
+    <ul class="textlist">
+        <li>Wrote python code to send reaction time and temperature to firebase from the microbit </li>
+        <li>Fixed problems with sending 2 data values to firebase at the same time. Overcame to problem by sending them into thonny under the same string them splitting the string. </li>
+        <li>Tested the microbit reaction time game and ensured to worked </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk2.png"
+            alt="code wk2">
+    </div>
+    <p>Week 3:</p>
+    <ul class="textlist">
+        <li>Wrote the HTML and CSS code for the navigation bar of the website </li>
+        <li>Overcame the problem of when the mouse was over a navigation option, the navigation box was not darkening. Overcame this by using li:hover. </li>
+        <li>Tested the navigation buttons to make sure they worked  </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk3.png"
+            alt="code wk3">
+            <img src="Images/code_2wk3.png"
+            alt="code wk3">
+    </div>
+    <p>Week 4:</p>
+    <ul class="textlist">
+        <li>Wrote the remainder of the homepage for the website </li>
+        <li>Overcame the problem of text running off the screen. Overcame this by adding margins and using flexbox to align the text </li>
+        <li>Tested the viewing the text under different browser dimensions to ensure it stayed on the screen. </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk4.png"
+            alt="code wk4">
+    </div>
+    <p>Week 5:</p>
+    <ul class="textlist">
+        <li>Wrote code to Initialize the firebase database with the JavaScript of my website </li>
+        <li>Overcame the problem of the getDatabase() function not working by realizing I need to import the function from firebase itself, along with other functions. </li>
+        <li>Tested adding, updating, removing and retrieving data from firebase using JavaScript to enhance my knowledge of using firebase with JavaScript, as i previously only knew how to do this using python and needed to learn this for week 6. </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk5.png"
+            alt="code wk5">
+    </div>
+    <p>Week 6:</p>
+    <ul class="textlist">
+        <li>Wrote code to retrieve the data of the last recorded reaction time from firebase and display it on the website. </li>
+        <li>I overcame the problem of not being able to find the latest reaction time value, only being able to find specifically inputted values. I did this by using the for Each function to find the keys of all the firebase data values and adding them to an array, before finding the largest of these values </li>
+        <li>Tested pressing the button on the website to ensure it gave the latest reaction time value </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk6.png"
+            alt="code wk6">
+    </div>
+    <p>Week 7:</p>
+    <ul class="textlist">
+        <li>Created the “What if” webpage in HTML for the what if questions </li>
+        <li>Overcame to problem of an image intruding into text and being too large by changing the image for a more suitable one </li>
+        <li>Tested the Navigation bar on the what if page to ensure it worked correctly </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk7.png"
+            alt="code wk7">
+    </div>
+    <p>Week 8:</p>
+    <ul class="textlist">
+        <li>Wrote code to take in Reaction time values from database and assign them to variables </li>
+        <li>Overcame the problem that directories in my database had been named with hyphens in them. This meant I could not use the method i knew to find the data in the database and assign it into variables. I learned a new method of doing this to overcome the problem </li>
+        <li>I tested the variables to ensure they had the correct values assigned to them from the database. This was done by using console.log to check </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk8_1.PNG"
+            alt="code wk8">
+    </div>
+    <div class="image">
+        <img src="Images/wk8-2.png"
+            alt="code wk8">
+    </div>
+    <div class="image">
+        <img src="Images/wk8-3.PNG"
+            alt="code wk8">
+    </div>
+    <div class="image">
+        <img src="Images/wk8-5.PNG"
+            alt="code wk8">
+    </div>
+    <div class="image">
+        <img src="Images/wk8-6.PNG"
+            alt="code wk8">
+    </div>
+    <div class="image">
+        <img src="Images/wk8-8.PNG"
+            alt="code wk8">
+    </div>
+    <div class="image">
+        <img src="Images/wk8-9.PNG"
+            alt="code wk8">
+    </div>
+    <p>Week 9:</p>
+    <ul class="textlist">
+        <li>Wrote code to take in the users Reaction time, Age, Gender, Time elapsed working and temperature of the area and assign all these to variables </li>
+        <li>Overcame the problem that the reaction time was in milliseconds, and i will need it in seconds for calculations for finding how the users reaction time compares to the average for their age and gender. I did this by creating a string of “0.” and i added the strings of the 0. and the user's reaction time before converting it into a number for calculations </li>
+        <li>Tested the variables to ensure the Reaction time, Age, Gender, Time elapsed working and temperature of the area were correctly assigned to variables. I used console.log to ensure values were correct </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk9.png"
+            alt="code wk9">
+    </div>
+    <p>Week 10:</p>
+    <ul class="textlist">
+        <li>Wrote code to calculate what sport the user should take up based on the parameters. Wrote code to calculate whether the user should take a break from their manual labor based on the parameters for this whatif question of the area around them. Also wrote code to display this on the website </li>
+        <li>Overcame the problem of the reaction time being incorrectly used in calculations. No matter what the time in miliseconds was “0.” was being added to the reaction time to convert to seconds. Fixed this so it was properly converted </li>
+        <li>Tested the whole process of inputting user data and pressing the button on the website to display the answers to the “what if” questions </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/wk10-1.png"
+            alt="code wk10">
+    </div>
+    <div class="image">
+        <img src="Images/wk10-2.png"
+            alt="code wk10">
+    </div>
+    <div class="image">
+        <img src="Images/wk10-3.png"
+            alt="code wk10">
+    </div>
+    <div class="image">
+        <img src="Images/wk10-4.png"
+            alt="code wk10">
+    </div>
+    <div class="image">
+        <img src="Images/wk10-5.png"
+            alt="code wk10">
+    </div>
+    <div class="image">
+        <img src="Images/wk10-6.png"
+            alt="code wk10">
+    </div>
+    <div class="image">
+        <img src="Images/wk10-7.png"
+            alt="code wk10">
+    </div>
+    <p>Week 11:</p>
+    <ul class="textlist">
+        <li>Wrote code to make an LED turn on and make a sound be outputted when the user presses the button on the microbit to input their reaction time. </li>
+        <li>Overcame the problem of the LED being on, and then turning off when the button on the microbit was pressed. This was overcame by switching the values of the 2 digital write pin blocks. </li>
+        <li>Tested the process of pressing the button on the microbit to ensure it turns on the LED and plays a sound when pressed </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk11.png"
+            alt="code wk11">
+    </div>
+    <p>Week 12:</p>
+    <ul class="textlist">
+        <li>Wrote code to make a graph using charts to display the users 10 most recent reaction times. </li>
+        <li>Overcame the problem of the reaction time values not displaying on the graph. The code to run the graph was running before the code to retrieve the reaction time values from the database. I put the code for the chart inside the function to get the data from the database </li>
+        <li>Tested adding new reaction time and making sure the chart updates accordingly </li>
+        
+    </ul>
+    <div class="image">
+        <img src="Images/code_wk12_1.png"
+            alt="code wk12">
+    </div>
+    <div class="image">
+        <img src="Images/wk12_2.png"
+            alt="code wk12">
+    </div>
+    <div class="image">
+        <img src="Images/code_wk12_3.png"
+            alt="code wk12">
+    </div>
+    <div class="image">
+        <img src="Images/code_wk12_4png.PNG"
+            alt="code wk12">
+    </div>
+
     <h2>Evaluation</h2>
+
     <h2>References</h2>
+
     <h2>Summary Word Count</h2>
+    <p>Meeting the brief</p>
+    <p>Investigation: 449 words</p>
+    <p>Plan and Design: 408 words</p>
+    <p>Create: 899 words</p>
+    <p>Evaluation: </p>
+    <p>Total Word Count: </p>
     </div>
 </body>
 </html>
