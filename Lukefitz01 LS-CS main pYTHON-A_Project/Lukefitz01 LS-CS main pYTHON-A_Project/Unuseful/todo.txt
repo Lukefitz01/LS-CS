@@ -1,0 +1,1 @@
+tell user if r times on graph are too slow/etc for age grouyp

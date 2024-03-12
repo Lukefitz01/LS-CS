@@ -1,0 +1,17 @@
+Basic 1 - Show Microbit Game - Show mb game +  Rtime audio and LED output
+			     - Show code with temp being read in
+                             - show show temp being read in
+                             - Show Rtime button on Website
+
+Basic 2 - Show code that sends data to FB , show firebase
+ 
+Advanced 3 + Basic 3 -  Show Graph + Rtime% + show graph updating
+
+Advanced 1 - Show document with R-times
+           - Show data in firebase + Users R times in firebase
+	   - show code to bring in data
+           
+
+Advanced 2 - 	Show pressing the button on website
+		Show + Explain code + mention how this is an analysis component
+	
