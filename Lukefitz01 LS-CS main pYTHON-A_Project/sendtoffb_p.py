@@ -34,10 +34,16 @@ while True:
     testing = len(mb_re)
     mb_temp = mb_re[-2:]
     mb_re = mb_re[0:testing - 3]
-    print(mb_re)
-    print(mb_temp)
    
-    ref.update({str(int(time.time())):{'ReactionTime':mb_re,'Temp':mb_temp}})
+   
+   if mb_re.isdigit() and mb_temp.isdigit():
+        print(mb_re)
+        print(mb_temp)
+       ref.update({str(int(time.time())):{'ReactionTime':mb_re,'Temp':mb_temp}})
+   else:
+       print("Invlaid Inputs")
+       print(mb_re)
+       print(mb_temp)
     #10N23 5 char
     #100N23 6
     #1000N23 7 
