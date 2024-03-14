@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>What if Page</title>
+</head>
+
+<body class="">
+    <header class="header">
+        <div class="">
+            <div class="">
+                <ul class="list1">
+                    <li><a href="../Report/index.html">Home</a></li>
+                    <li><a href="whatif.html">What if</a></li>
+                    <li><a href="mockgraph.html">Past Results</a></li>
+                    <li><a href="../Report/text.html">Project Theroy</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="mainbody">
+        <div class="toptext">
+            <h1>What if?</h1>
+        </div>
+        <div class="top">
+            <div class="image">
+                <img src="../Report/Images/asian-male-construction-worker-thinking-260nw-2230323527-1398327032.jpg"
+                    alt="Construction Worker Thinking">
+            </div>
+            <div class="text1">
+                <p>Welcome to the "What if" page. This page will answer the questions "What if the user was to take up a
+                    sport?" and "What if the user was to take a break from their manual labour?" using the reaction time
+                    data, Temperature data combined with the data inputted from the form below.
+                </p>
+                <p>
+                    To start , fill out the form below, then press the "Submit" button then the "Show button" to get
+                    your results
+                </p>
+            </div>
+        </div>
+        <div class="form">
+            <div class="">
+                <div class="margin1">
+                    <label>Age</label><input class="margin2" id="age" type="number">
+                </div>
+                <div class="margin1">
+                    <label>Gender</label><select class="margin2" id="gen">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+
+                    </select>
+                </div>
+                <div class="margin1">
+                    <label>Time since last break (mins)</label><input class="margin2" id="wtime" type="number">
+                </div>
+            </div>
+
+
+            <button id="submit">Submit</button>
+        </div>
+        <div class="microbittext">
+            <p>Press the button to find the answers to the "what if" questions (Press it twice) </p>
+        </div>
+        <div class="form">
+            <button id="Button2">Button</button>
+        </div>
+        <div class="full">
+            <div class="left">
+                <p>"What if the user was to take up a sport?</p>
+                <div class="text333">
+                    <p>Your reaction time is:&nbsp;</p>
+                    <p id="rtime">
+                    <p>&nbsp;seconds</p>
+                </div>
+                <div class="text333">
+                    <div>Based on this, the sports you should consider taking up are:&nbsp;</div>
+                    <p id="sports1">
+
+                </div>
+            </div>
+            <div class="right">
+                <p>What if the user was to take a break from their manual labour?</p>
+
+                <div class="text333">
+                    <p>Based on the inputted information, and the temperature in your area:&nbsp; </p>
+                    <p id="break2">
+                </div>
+
+            </div>
+        </div>
+        <div class="bottomtext">
+            <p>Want to visit the homepage? <a href="../Report/index.html">Home</a></li> page.</p>
+            <p>Want to see all your past results? check out the
+                <a href="mockgraph.html">Past Results</a> page
+            </p>
+        </div>
+
+        <script type="module">
+
+            /*
+
+                 <p id="rtime">
+                    
+                  let rtime = document.getElementById('Button'); // Should be Button2
+                  rtime.addEventListener("click", myFunction1);
+
+                function myFunction1() {
+                document.getElementById("rtime").innerHTML = ReactionTime;
+                   }
+                */
+//
+
+
+            // time working box  + data add
+            // IF avg Rtime > num (dependinh), give list of sprts (30% of normal) 
+            // If time working > num and temp > num , tell user to/not to take break
+            // display this to the user
+
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyADFbm7eOAYc9ikVduSPEF_i_sKDDpfRY8",
+                authDomain: "fire10db-5cdc9.firebaseapp.com",
+                databaseURL: "https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "fire10db-5cdc9",
+                storageBucket: "fire10db-5cdc9.appspot.com",
+                messagingSenderId: "754388872821",
+                appId: "1:754388872821:web:b3ff18d3df16964eac123c"
+            };
+
+
+            const app = initializeApp(firebaseConfig);
+
+            import { getDatabase, ref, set, get, child, update, remove }
+                from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+
+            const db = getDatabase();
+
+
+
+            let Age = document.getElementById('age');
+            let gen = document.getElementById('gen');
+            let wtime = document.getElementById('wtime');
+            let time = 0
+            let form = document.getElementById('submit');
+
+
+
+
+            function validateform() {
+
+                if (document.getElementById("age").value == "") {
+                    alert("Please provide age!");
+                    return false;
+                }
+
+                else {
+                    console.log("Form Success")
+                }
+
+
+                time = (new Date()).getTime() / 1000;
+                time = Math.round(time)
+                set(ref(db, 'UserLog/' + time), {
+                    age: Number(Age.value),
+                    gender: gen.value,
+                    working: wtime.value
+                }).then(() => {
+                    alert('Form Submitted');
+                }).catch(() => {
+                    alert('Unsuccessful')
+                    console.log(error)
+                })
+
+
+            }
+            form.addEventListener('click', validateform)
+
+            let displaybutton = document.getElementById('Button2');
+            displaybutton.addEventListener('click', displaydata);
+
+            let M15 = 0
+            let M15up = 0
+            let M15down = 0
+
+            let M16 = 0
+            let M16up = 0
+            let M16down = 0
+
+            let M21 = 0
+            let M21up = 0
+            let M21down = 0
+
+            let M26 = 0
+            let M26up = 0
+            let M26down = 0
+
+            let M31 = 0
+            let M31up = 0
+            let M31down = 0
+
+            let M36 = 0
+            let M36up = 0
+            let M36down = 0
+
+            let M41 = 0
+            let M41up = 0
+            let M41down = 0
+
+            let M46 = 0
+            let M46up = 0
+            let M46down = 0
+
+            let M51 = 0
+            let M51up = 0
+            let M51down = 0
+
+            let M56 = 0
+            let M56up = 0
+            let M56down = 0
+
+            let M61 = 0
+            let M61up = 0
+            let M61down = 0
+
+            let F15 = 0
+            let F15up = 0
+            let F15down = 0
+
+            let F16 = 0
+            let F16up = 0
+            let F16down = 0
+
+            let F21 = 0
+            let F21up = 0
+            let F21down = 0
+
+            let F26 = 0
+            let F26up = 0
+            let F26down = 0
+
+            let F31 = 0
+            let F31up = 0
+            let F31down = 0
+
+            let F36 = 0
+            let F36up = 0
+            let F36down = 0
+
+            let F41 = 0
+            let F41up = 0
+            let F41down = 0
+
+            let F46 = 0
+            let F46up = 0
+            let F46down = 0
+
+            let F51 = 0
+            let F51up = 0
+            let F51down = 0
+
+            let F56 = 0
+            let F56up = 0
+            let F56down = 0
+
+            let F61 = 0
+            let F61up = 0
+            let F61down = 0
+
+
+            let var1 = 0
+            let sport1 = "55555555555"
+            let break1 = "Break1"
+
+            let usernum = 0
+            let age1 = 0
+            let gender1 = ""
+            let working1 = 0
+
+            let reactionnum = 0
+            let temp1 = 0
+            let Rtime1 = 0
+
+            let test1 = "0."
+            function displaydata() {
+                const dbRef = ref(db);
+                //console.log(dbRef)
+                console.log("11111111111111")
+                get(child(dbRef, 'MRTimeSet/')).then((snapshot) => {
+                    //console.log("22222")
+                    if (snapshot.exists()) {
+                        // M15 = snapshot.val()
+                        //console.log(M15)    
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childData = childSnapshot.val().RTime;
+                            // console.log(childData);
+
+                            if (var1 == 0) {
+                                M15 = childData;
+                                M15up = M15 * 1.3
+                                M15down = M15 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 1) {
+                                M16 = childData;
+                                M16up = M16 * 1.3
+                                M16down = M16 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 2) {
+                                M21 = childData;
+                                M21up = M21 * 1.3
+                                M21down = M21 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 3) {
+                                M26 = childData;
+                                M26up = M26 * 1.3
+                                M26down = M26 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 4) {
+                                M31 = childData;
+                                M31up = M31 * 1.3
+                                M31down = M31 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 5) {
+                                M36 = childData;
+                                M36up = M36 * 1.3
+                                M36down = M36 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 6) {
+                                M41 = childData;
+                                M41up = M41 * 1.3
+                                M41down = M41 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 7) {
+                                M46 = childData;
+                                M46up = M46 * 1.3
+                                M46down = M46 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 8) {
+                                M51 = childData;
+                                M51up = M51 * 1.3
+                                M51down = M51 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 9) {
+                                M56 = childData;
+                                M56up = M56 * 1.3
+                                M56down = M56 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 10) {
+                                M61 = childData;
+                                M61up = M61 * 1.3
+                                M61down = M61 * 0.7
+
+                                var1 = 0
+
+                                //console.log(M36, M61)
+                            }
+                        })
+
+
+                    }
+                    else {
+                        alert("data no exist 1 ")
+                    }
+                })
+
+                get(child(dbRef, 'FRTimeSet/')).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        // M15 = snapshot.val()
+                        //console.log(M15)    
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childData = childSnapshot.val().RTime;
+                            //console.log(childData);
+
+                            if (var1 == 0) {
+                                F15 = childData;
+                                F15up = F15 * 1.3
+                                F15down = F15 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 1) {
+                                F16 = childData;
+                                F16up = F16 * 1.3
+                                F16down = F16 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 2) {
+                                F21 = childData;
+                                F21up = F21 * 1.3
+                                F21down = F21 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 3) {
+                                F26 = childData;
+                                F26up = F26 * 1.3
+                                F26down = F26 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 4) {
+                                F31 = childData;
+                                F31up = F31 * 1.3
+                                F31down = F31 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 5) {
+                                F36 = childData;
+                                F36up = F36 * 1.3
+                                F36down = F36 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 6) {
+                                F41 = childData;
+                                F41up = F41 * 1.3
+                                F41down = F41 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 7) {
+                                F46 = childData;
+                                F46up = F46 * 1.3
+                                F46down = F46 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 8) {
+                                F51 = childData;
+                                F51up = F51 * 1.3
+                                F51down = F51 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 9) {
+                                F56 = childData;
+                                F56up = F56 * 1.3
+                                F56down = F56 * 0.7
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 10) {
+                                F61 = childData;
+                                F61up = F61 * 1.3
+                                F61down = F61 * 0.7
+
+                                var1 = var1 + 1
+
+                                //console.log(F36,F61)
+                            }
+                        })
+
+
+                    }
+                    else {
+                        alert("data no exist")
+                    }
+                })
+
+                get(child(dbRef, 'ProjReactionLog/')).then((snapshot) => {
+                    if (snapshot.exists()) {
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childDataTime = childSnapshot.val().ReactionTime;
+                            const childDataTemp = childSnapshot.val().Temp;
+
+                            console.log(childKey, childDataTime, childDataTemp);
+
+                            reactionnum = childKey;
+                            temp1 = childDataTemp;
+                            Rtime1 = childDataTime;
+
+
+                        })
+                        console.log("PROJRLOG", reactionnum, temp1, Rtime1);
+
+                    }
+                    else {
+                        alert("data no exist 3 ")
+                    }
+                })
+
+
+                get(child(dbRef, 'UserLog/')).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        // M15 = snapshot.val()
+                        //console.log(M15)    
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childDataAge = childSnapshot.val().age;
+                            const childDataGen = childSnapshot.val().gender;
+                            const childDataWork = childSnapshot.val().working;
+                            console.log(childKey, childDataAge, childDataGen, childDataWork);
+
+                            usernum = childKey;
+                            age1 = childDataAge;
+                            gender1 = childDataGen;
+                            working1 = childDataWork;
+
+                        })
+                        console.log("USERLOG", usernum, age1, gender1, working1);
+
+                        Rtime1 = test1 + Rtime1
+                        Rtime1 = Number(Rtime1)
+                        working1 = Number(working1)
+                        //console.log("age", typeof Rtime1, Rtime1)
+                        if (age1 < 16) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M15up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M15down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F15up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F15down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 15 && age1 < 21) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M16up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M16down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F16up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F16down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 20 && age1 < 26) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M21up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M21down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F21up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F21down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 25 && age1 < 31) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M26up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (RTime1 < M26down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F26up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (RTime1 < F26down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 30 && age1 < 36) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M31up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M31down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F31up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F31down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 35 && age1 < 41) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M36up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M36down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F36up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F36down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 40 && age1 < 46) {
+                            //  console.log("ghgdhtfxfj")
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M41up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M41down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F41up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F41down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 45 && age1 < 51) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M46up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (RTime1 < M46down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F46up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (RTime1 < F46down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 50 && age1 < 56) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M51up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M51down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F51up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F51down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 55 && age1 < 61) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M56up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (RTime1 < M56down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F56up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (RTime1 < F56down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                        }
+                        else if (age1 > 61) {
+                            if (gender1 == "Male") {
+                                if (Rtime1 > M61up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < M61down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > F61up) {
+                                    sport1 = "Hockey, Basketball and Double Trap"
+                                }
+                                else if (Rtime1 < F61down) {
+                                    sport1 = "Softball , Fencing , Badminton , Martial Arts and Equestrian"
+                                }
+                                else {
+                                    sport1 = "Table Tennis , Cricket and Boxing"
+                                }
+                            }
+
+                        }
+                        console.log(sport1)
+
+                        // now calc for working time. Tw:RT: Temp(how long)
+                        let Mavgup = 0
+                        let Favgup = 0
+                        let Mavgdown = 0
+                        let Favgdown = 0
+                        let test2 = 0
+                        let test3 = 0
+                        let test4 = 0
+                        let test5 = 0
+                        test2 = M15up + M16up + M21up + M26up + M31up + M36up + M41up + M46up + M51up + M56up + M61up
+                        Mavgup = test2 / 11
+
+                        test3 = F15up + F16up + F21up + F26up + F31up + F36up + F41up + F46up + F51up + F56up + F61up
+                        Favgup = test3 / 11
+
+                        test4 = M15down + M16down + M21down + M26down + M31down + M36down + M41down + M46down + M51down + M56down + M61down
+                        Mavgdown = test4 / 11
+
+                        test5 = F15down + F16down + F21down + F26down + F31down + F36down + F41down + F46down + F51down + F56up + F61down
+                        Favgdown = test5 / 11
+
+                        //console.log(Mavgup, Mavgdown, Favgup, Favgdown)
+                        // Temp > 10 and less than 25 = 10 min break
+                        // Temp < 11 suggest 20 min break
+
+                        if (working1 < 20) {
+                            // below break threshold
+                            if (gender1 == "Male") {
+                                if (Rtime1 > Mavgup) {
+                                    // break
+                                    if (temp1 > 24) {
+                                        break1 = "You should take a 20 min break. Your reaction time is slow and it is hot"
+                                    }
+                                    else if (temp1 < 11) {
+                                        break1 = "You should take a 20 min break. Your reaction time is slow and it is cold"
+                                    }
+                                    else {
+                                        break1 = "You should take a 10 min break. Your reaction time is slow."
+                                    }
+                                }
+                                else {
+                                    // no break
+                                    break1 = "You should not take a break. You are not fatigued"
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 > Favgup) {
+                                    // break
+                                    if (temp1 > 24) {
+                                        break1 = "You should take a 20 min break. Your reaction time is slow and it is hot"
+                                    }
+                                    else if (temp1 < 11) {
+                                        break1 = "You should take a 20 min break. Your reaction time is slow and it is cold"
+                                    }
+                                    else {
+                                        break1 = "You should take a 10 min break. Your reaction time is slow."
+                                    }
+                                }
+                                else {
+                                    // no break
+                                    break1 = "You should not take a break. You are not fatigued"
+                                }
+                            }
+
+                        }
+                        else if (working1 > 19) {
+                            // above break threshold
+                            if (gender1 == "Male") {
+                                if (Rtime1 < Mavgdown) {
+                                    // no break
+                                    break1 = "You should not take a break. Your reaction time is normal"
+                                }
+                                else {
+                                    // break
+                                    if (temp1 > 24) {
+                                        break1 = "You should take a 20 min break. You are fatigued and it is hot"
+                                    }
+                                    else if (temp1 < 11) {
+                                        break1 = "You should take a 20 min break.  You are fatigued and it is cold"
+                                    }
+                                    else {
+                                        break1 = "You should take a 10 min break. You are fatigued"
+                                    }
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if (Rtime1 < Favgdown) {
+                                    // no break
+                                    break1 = "You should not take a break. Your reaction time is normal"
+                                }
+                                else {
+                                    // break
+                                    if (temp1 > 24) {
+                                        break1 = "You should take a 20 min break. You are fatigued and it is hot"
+                                    }
+                                    else if (temp1 < 11) {
+                                        break1 = "You should take a 20 min break.  You are fatigued and it is cold"
+                                    }
+                                    else {
+                                        break1 = "You should take a 10 min break. You are fatigued"
+                                    }
+                                }
+                            }
+
+                        }
+                        console.log(break1)
+
+                        let rtime = document.getElementById('Button2'); // Should be Button2
+                        rtime.addEventListener("click", myFunction1);
+
+
+                    }
+                    else {
+                        alert("data no exist 3 ")
+                    }
+                })
+                //We have values for RTime(M/Fage) for all ages and gender
+                // We have the Users Rtime(Rtime1), Temp(temp1)  , Age(age1) , Gender(gender1) and Time Working (working1)
+                //   Set a sport based on Age:Gender:Rtime
+
+                //console.log(sport1)
+                function myFunction1() {
+                    document.getElementById("rtime").innerHTML = Rtime1;
+
+                    document.getElementById("sports1").innerHTML = sport1;
+
+                    document.getElementById("break2").innerHTML = break1;
+                }
+
+
+
+
+
+
+            }
+        </script>
+</body>
+
+</html>

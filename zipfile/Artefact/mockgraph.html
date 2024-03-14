@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Past Results</title>
+</head>
+
+
+<body>
+    <header class="header">
+        <div class="">
+            <div class="">
+                <ul class="list1">
+                    <li><a href="../Report/index.html">Home</a></li>
+                    <li><a href="whatif.html">What if</a></li>
+                    <li><a href="mockgraph.html">Past Results</a></li>
+                    <li><a href="../Report/text.html">Project Theroy</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </header>
+    <canvas id="myChart" style="width:100%;max-width:90%"></canvas>
+    <p id="Message"></p>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyADFbm7eOAYc9ikVduSPEF_i_sKDDpfRY8",
+            authDomain: "fire10db-5cdc9.firebaseapp.com",
+            databaseURL: "https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "fire10db-5cdc9",
+            storageBucket: "fire10db-5cdc9.appspot.com",
+            messagingSenderId: "754388872821",
+            appId: "1:754388872821:web:b3ff18d3df16964eac123c"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, get, child, update, remove }
+            from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+
+        const db = getDatabase();
+        const dbRef = ref(db);
+        let R1 = 0
+        let R2 = 0
+        let R3 = 0
+        let R4 = 0
+        let R5 = 0
+        let R6 = 0
+        let R7 = 0
+        let R8 = 0
+        let R9 = 0
+        let R10 = 0
+
+        let R1n = 0
+        let R2n = 0
+        let R3n = 0
+        let R4n = 0
+        let R5n = 0
+        let R6n = 0
+        let R7n = 0
+        let R8n = 0
+        let R9n = 0
+        let R10n = 0
+//
+        let var1 = 0
+        let var2 = 0
+        let var3 = 0
+        get(child(dbRef, 'ProjReactionLog/')).then((snapshot) => {
+            if (snapshot.exists()) {
+                // need to get previous 10 R times
+                snapshot.forEach((childSnapshot) => {
+                    //const childDataTemp = childSnapshot.val().Temp;
+                    var2 = var2 + 1 // eg 27
+                })
+                var3 = var2  - 11 //  18 19 20 21 22 23 24 25 26 27 
+                snapshot.forEach((childSnapshot) => {
+                    let childKey = childSnapshot.key;
+                    let childDataTime = childSnapshot.val().ReactionTime;
+                    //const childDataTemp = childSnapshot.val().Temp;
+                    var2 = var2 + 1
+                   // console.log(childKey, childDataTime);
+
+
+
+
+                    childDataTime = childDataTime * 0.001
+                    /*if (childDataTime.length  == 2){
+                        childDataTime = "0.0" + childDataTime
+                    }
+                    else{
+                        childDataTime = "0." + childDataTime
+                    }*/
+                    
+                   // console.log(childKey, childDataTime);
+                    if (var1 == var3) {
+                        R1n = childKey;
+                        R1 = childDataTime;
+
+                      
+                    }
+                    else if (var1 == var3 + 1) {
+                        R2n = childKey;
+                        R2 = childDataTime;
+
+                      
+                    }
+                    else if (var1 == var3 + 3) {
+                        R3n = childKey;
+                        R3 = childDataTime;
+
+                    
+                    }
+                    else if (var1 == var3 + 4) {
+                        R4n = childKey;
+                        R4 = childDataTime;
+
+                      
+                    }
+                    else if (var1 == var3 + 5) {
+                        R5n = childKey;
+                        R5 = childDataTime;
+
+                    }
+                    else if (var1 == var3 + 6) {
+                        R6n = childKey;
+                        R6 = childDataTime;
+
+               
+                    }
+                    else if (var1 == var3 + 7) {
+                        R7n = childKey;
+                        R7 = childDataTime;
+
+                       
+                    }
+                    else if (var1 == var3 + 8) {
+                        R8n = childKey;
+                        R8 = childDataTime;
+
+                        
+                    }
+                    else if (var1 == var3 + 9) {
+                        R9n = childKey;
+                        R9 = childDataTime;
+
+                  
+                    }
+                    else if (var1 == var3 + 10) {
+                        R10n = childKey;
+                        R10 = childDataTime;
+
+                      
+                    }
+                    var1 = var1 + 1
+
+
+
+                })
+               // console.log("PROJRLOG", R1,R1n, R10, R10n);
+
+            }
+            else {
+                alert("data no exist 3 ")
+            }
+
+           // console.log(R1,R2, R3, R4);
+        const xValues = [R1n, R2n, R3n, R4n, R5n, R6n, R7n, R8n, R9n, R10n]; // put random nums from db in here
+        const yValues = [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10];
+        let barColors = ["red", "green", "blue", "orange", "brown", "red", "green", "blue", "orange", "brown"]; // fine
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Reaction Time History"
+                }
+            }
+        });
+           
+
+          let M15 = 0
+        
+
+            let M16 = 0
+         
+
+            let M21 = 0
+         
+
+            let M26 = 0
+          
+
+            let M31 = 0
+      
+
+            let M36 = 0
+      
+
+            let M41 = 0
+          
+    
+
+            let M46 = 0
+          
+            let M51 = 0
+          
+
+            let M56 = 0
+         
+
+            let M61 = 0
+           
+
+            let F15 = 0
+            
+
+            let F16 = 0
+            let F21 = 0
+            let F26 = 0
+            let F31 = 0
+            let F36 = 0
+            let F41 = 0
+            let F46 = 0
+            let F51 = 0
+            let F56 = 0
+            let F61 = 0
+       
+
+
+            var1 = 0
+
+
+            let usernum = 0
+            let age1 = 0
+            let gender1 = ""
+
+            let reactionnum = 0
+            let temp1 = 0
+            let Rtime1 = 0
+
+            let test1 = "0."
+           
+                const dbRef = ref(db);
+                //console.log(dbRef)
+               // console.log("11111111111111")
+                get(child(dbRef, 'MRTimeSet/')).then((snapshot) => {
+                    //console.log("22222")
+                    if (snapshot.exists()) {
+                        // M15 = snapshot.val()
+                        //console.log(M15)    
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childData = childSnapshot.val().RTime;
+                            // console.log(childData);
+
+                            if (var1 == 0) {
+                                M15 = childData;
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 1) {
+                                M16 = childData;
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 2) {
+                                M21 = childData;                    
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 3) {
+                                M26 = childData;
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 4) {
+                                M31 = childData;                  
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 5) {
+                                M36 = childData;
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 6) {
+                                M41 = childData;
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 7) {
+                                M46 = childData;
+                         
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 8) {
+                                M51 = childData;
+                           
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 9) {
+                                M56 = childData;
+                         
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 10) {
+                                M61 = childData;
+                       
+
+                                var1 = 0
+
+                                //console.log(M36, M61)
+                            }
+                        })
+
+
+                    }
+                    else {
+                        alert("data no exist 1 ")
+                    }
+                })
+
+                get(child(dbRef, 'FRTimeSet/')).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        // M15 = snapshot.val()
+                        //console.log(M15)    
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childData = childSnapshot.val().RTime;
+                            //console.log(childData);
+
+                            if (var1 == 0) {
+                                F15 = childData;
+                               
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 1) {
+                                F16 = childData;
+                               
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 2) {
+                                F21 = childData;
+                              
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 3) {
+                                F26 = childData;
+                                
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 4) {
+                                F31 = childData;
+                               
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 5) {
+                                F36 = childData;
+                             
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 6) {
+                                F41 = childData;
+                             
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 7) {
+                                F46 = childData;
+                               
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 8) {
+                                F51 = childData;
+                            
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 9) {
+                                F56 = childData;
+                               
+                            
+
+                                var1 = var1 + 1
+                            }
+                            else if (var1 == 10) {
+                                F61 = childData;
+                              
+
+                                var1 = var1 + 1
+
+                                //console.log(F36,F61)
+                            }
+                        })
+
+
+                    }
+                    else {
+                        alert("data no exist")
+                    }
+                })
+
+
+                get(child(dbRef, 'UserLog/')).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        // M15 = snapshot.val()
+                        //console.log(M15)    
+
+                        snapshot.forEach((childSnapshot) => {
+                            const childKey = childSnapshot.key;
+                            const childDataAge = childSnapshot.val().age;
+                            const childDataGen = childSnapshot.val().gender;
+                            console.log(childKey, childDataAge, childDataGen);
+
+                            usernum = childKey;
+                            age1 = childDataAge;
+                            gender1 = childDataGen;
+                           
+
+                        })
+                        console.log("USERLOG", usernum, age1, gender1);
+
+                        let total11 = R1 + R2 + R3 + R4 + R5 + R6 + R7 + R8 +R9 + R10
+                        let total12 = total11 / 10
+                        let THE_MESSAGE = ""
+                        let hmm = 0;
+                     
+                        if (age1 < 16) {
+                            if (gender1 == "Male") {
+                                if(total12 > M15){
+                                    hmm = total12 / M15;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M15;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F15){
+                                    hmm = total12 / F15;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. "
+                                }
+                                else{
+                                    hmm = total12 / F15;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 15 && age1 < 21) {
+                            if (gender1 == "Male") {
+                                if(total12 > M16){
+                                    hmm = total12 / M16;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M16;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F16){
+                                    hmm = total12 / F16;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. ."
+                                }
+                                else{
+                                    hmm = total12 / F16;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 20 && age1 < 26) {
+                            if (gender1 == "Male") {
+                                if(total12 > M21){
+                                    hmm = total12 / M21;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M21;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F21){
+                                    hmm = total12 / F21;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / F21;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 25 && age1 < 31) {
+                            if (gender1 == "Male") {
+                                if(total12 > M26){
+                                    hmm = total12 / M26;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M26;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F26){
+                                    hmm = total12 / F26;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / F26;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 30 && age1 < 36) {
+                            if (gender1 == "Male") {
+                                if(total12 > M31){
+                                    hmm = total12 / M31;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M31;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F31){
+                                    hmm = total12 / F31;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / F31;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 35 && age1 < 41) {
+                            if (gender1 == "Male") {
+                                if(total12 > M36){
+                                    hmm = total12 / M36;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M36;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F36){
+                                    hmm = total12 / F36;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / F36;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 40 && age1 < 46) {
+                           
+                            if (gender1 == "Male") {
+                                if(total12 > M41){
+                                    hmm = total12 / M41;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M41;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F41){
+                                    hmm = total12 / F41;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / F41;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 45 && age1 < 51) {
+                            if (gender1 == "Male") {
+                                if(total12 > M46){
+                                    hmm = total12 / M46;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M46;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F46){
+                                    hmm = total12 / F46;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / F46;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 50 && age1 < 56) {
+                            if (gender1 == "Male") {
+                                if(total12 > M51){
+                                    hmm = total12 / M51;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender."
+                                }
+                                else{
+                                    hmm = total12 / M51;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F51){
+                                    hmm = total12 / F51;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                                }
+                                else{
+                                    hmm = total12 / F51;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. "
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 55 && age1 < 61) {
+                            if (gender1 == "Male") {
+                                if(total12 > M56){
+                                    hmm = total12 / M56;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                                }
+                                else{
+                                    hmm = total12 / M56;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. "
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F56){
+                                    hmm = total12 / F56;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                                }
+                                else{
+                                    hmm = total12 / F56;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender."
+                               
+                                }
+                            }
+                        }
+                        else if (age1 > 61) {
+                            if (gender1 == "Male") {
+                                if(total12 > M61){
+                                    hmm = total12 / M61;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                                }
+                                else{
+                                    hmm = total12 / M61;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender. "
+                               
+                                }
+                            }
+                            else if (gender1 == "Female") {
+                                if(total12 > F61){
+                                    hmm = total12 / F61;
+                                    hmm = hmm - 1
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2]+hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% above normal for your the average for age and gender. You should try to improve this using our reaction time game. This will improve your wellbeing as it will help you in sports."
+                                }
+                                else{
+                                    hmm = total12 / F61;
+                                    hmm = 1 - hmm
+                                    hmm = String(hmm)
+                                    hmm = hmm[0] + hmm[1] + hmm[2] +hmm[3] 
+                                    THE_MESSAGE = "Your average reaction time is "
+                                    THE_MESSAGE = THE_MESSAGE + hmm + "% below normal for your the average for age and gender."
+                               
+                                }
+                            }
+
+                        }
+                        document.getElementById("Message").innerHTML = THE_MESSAGE;
+                        //console.log(THE_MESSAGE)
+        
+                        myFunction2()
+
+                    }
+                    else {
+                        alert("data no exist 3 ")
+                    }
+                   
+                })
+
+       
+
+        }) 
+        
+
+        //const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+        //const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+        //let xValues = [R1n, R2n, R3n, R4n, R5n, R6n, R7n, R8n, R9n, R10n]; // put random nums from db in here
+        //let yValues = [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10]; // put rtimes in here
+        
+  
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Artefact/style.css">
+    <title>Project Theroy</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="">
+            <div class="">
+                <ul class="list1">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../Artefact/whatif.html">What if</a></li>
+                    <li><a href="../Artefact/mockgraph.html">Past Results</a></li>
+                    <li><a href="text.html">Project Theroy</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="mainbody">
+       <div class="links"> <a href="text.html#mb">Jump to: Meeting the Brief </a><br>
+        <a href="text.html#in">Jump to: Investigation</a><br>
+        <a href="text.html#pd">Jump to: Plan and Design</a><br>
+        <a href="text.html#cr">Jump to: Create</a><br>
+        <a href="text.html#ev">Jump to: Evaluation</a><br>
+        <a href="text.html#re">Jump to: References</a><br>
+        <a href="text.html#sm">Jump to: Summary Word Count</a><br>
+      </div>
+        <h2 id="mb">Meeting The Brief</h2>
+        <h2 id="in">Investigation</h2>
+        <p>The first system I investigated was Fitbit. One feature of Fitbit is tracking step count by using an
+            accelerometer and transferring the analogue movement data to digital data. I liked the way the Fitbit
+            transfers this data from analogue to digital and investigated using a step-counting system in my project,
+            but I rejected it as I found the plausibility of having to carry around the microbit limited. (McLaughlin,
+            2021) </p>
+        <p>The second system I investigated was the walk in my shoes website. The website uses mindfulness exercise and
+            wellness activities to help people relax. I liked the proven effectiveness of mindfulness exercises in use
+            here, but rejected this system due to the difficulty of making auditory recordings for my project (Wellbeing
+            activities for Young People) </p>
+        <p>The final system I investigated is Reaction Time & Reflex Test app. The apps main feature is a game that
+            tracks your reaction time and logs your progression. I chose this system as I believe I can help improve
+            productivity and concentration by using reaction time. (Thinkabout, 2020) </p>
+        <p>My system works by user pressing a button on the website to start the game. The lights on the microbit will
+            then light up before turning off at the same time, after a random time. The user will press the button again
+            quickly after the lights turn off to log reaction time and the area temperature. This data will be compared
+            to externally sourced data to predict/inform decisions on Sport and Productivity. My target audience is
+            people looking to pick up sports, along with people who long manual labour jobs, and those who spend a lot of time working on computers </p>
+        <p>My research enabled me to identify the key factors to implement and abstract by looking the features of each
+            system I investigated and comparing to the project brief. I will abstract the CSS styling, creating an
+            account function, other games on my final system along with the “Contact us" and "Privacy Policy” pages.
+        </p>
+        <p>My objectives are to model a system which:
+        <ul class="textlist">
+            <li>Is fully automated, uses the analogue temperature input, the reaction time input, the analogue audio
+                output and the digital LED output </li>
+            <li>Validates and stores the data gathered from the microbit in firebase </li>
+            <li>Analyses the data gathered to inform decisions on what sport the user should take up. Data will also be
+                analysed to inform the decision on whether a manual worker needs a break to increase productivity. </li>
+            <li>Uses Python and/or JavaScript to create a graph of reaction times which effects the what if questions.
+            </li>
+            <li>Offers wellbeing insights based on these two “what if” questions: </li>
+            <li>&emsp;&emsp;What if the user was to take up a sport? Parameters: Age,Gender,Reaction time </li>
+            <li>&emsp;&emsp;What if the user was to take a break from their manual labour? Parameters: Reaction time,
+                Time Working , Temperature </li>
+            <li>Graphs the history of the user's reaction time </li>
+        </ul>
+        <p>Based on how my project works, it will meet the Basic and Advanced requirements in the brief</p>
+        <div class="image">
+            <img src="Images/survey.PNG"
+                alt="Flowchart">
+        </div>
+        <div class="image">
+            <img src="Images/survey2.png"
+                alt="Flowchart">
+        </div>
+        <div class="image">
+            <img src="Images/survey3.png"
+                alt="Flowchart">
+        </div>
+        <div class="image">
+            <img src="Images/survey4.png"
+                alt="Flowchart">
+        </div>
+        <div class="image">
+            <img src="Images/survey5.png"
+                alt="Flowchart">
+        </div>
+        <div class="image">
+            <img src="Images/survey6.PNG"
+                alt="Flowchart">
+        </div>
+        <div class="image">
+            <img src="Images/survey7.png"
+                alt="Flowchart">
+        </div>
+        <h2 id="pd">Plan and design</h2>
+        <p>Users start the system by clicking a button on the website. The microbit's lights turn on one by one. They
+            then go off together after a random time. Users then quickly press the button again after the lights go off
+            to record their reaction time and the current temperature of the area. After analyzing this data, along with
+            externally sourced data, the two “what if” questions will be answered, and the information will be displayed
+            to user on the website </p>
+        <p>This system meets the requirements of the brief as it Is automated has an analogue temperature input, digital
+            reaction time input, analogue audio output and digital LED output. The system also validates and stores this
+            input
+            data in firebase </p>
+        <p>The system will analyse the input data to make decisions on what sport the user should take up. This will
+            also inform a decision on if a manual worker should take a break to increase their productivity. </p>
+        <p>Agile was used when making this project.While the over all target was to create the reaction time system  and fulfull the basic and advanced requirments, this was broken down into smaller tasks as detailed in the create log with each stage being tested as it was developed. </p>
+        <p>The system uses a decision-making model to determine the answers to
+            what what-if questions. </p>
+            
+        <p>The system will use Python and JavaScript to make a graph of the user's reaction times which will be a data
+            input for the “what if” questions. </p>
+        <p>These “what if” questions will be: “What if the user was to take up a sport?” with the parameters of Age,
+            Gender and Reaction time. The second what if question will be: “What if the user was to take a break from
+            their manual labour?” with the parameters of Reaction time, Age and Temperature </p>
+        <a href="flowimages.html">index.html , whatif.html Flowcharts and Circut Diagram</a>
+        <br><a href="graphflow.html">mockgraph.html Flowchart</a>
+        <p>For the technologies I will use, I will use the microbit. The microbit is a hardware ARM-based embedded
+            system. It will be used in showing the 5 lights for the reaction time game ,audio output and temperature
+            input. </p>
+        <p>Other technologies I will use include:</p>
+        <p>Python is a high-level, general-purpose programming language. It will be used in coding up data transfer to
+            and from firebase. </p>
+        <p>JavaScript is a programming language and the core technology of the World Wide Web. I will use it in coding
+            related to the website and data transfer </p>
+        <p>HTML is the standard markup language for documents designed to be displayed in a web browser. It will be used
+            to code by the website </p>
+        <p>Visual studio code is an IDE. It will be used for coding HTML , CSS and JavaScript. </p>
+        <p>Thonny is an IDE. It will be used for coding python. </p>
+        <p>Google Firebase is a backend cloud computing service and application development platform. It will be used to
+            store the input data and other data required for the project. </p>
+        <p>My project follows the principles of universal design by using alt text for images, having a simple and easy to understand design , having a tolerance for error and low physical effort through having big buttons, and having in-page links for Size and Space for Approach and Use </p>
+        <h2 id="cr">Create</h2>
+        <p>Week 1:</p>
+        <ul class="textlist">
+            <li>Wrote code in makecode to make the reaction time game on the microbit </li>
+            <li>Overcame the problem of deciding on the idea I have decided to pursue. </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk1.PNG" alt="code wk1">
+            <img src="Images/code_wk1_2.PNG" alt="code wk1">
+        </div>
+        <p>Week 2:</p>
+        <ul class="textlist">
+            <li>Wrote python code to send reaction time and temperature to firebase from the microbit </li>
+            <li>Fixed problems with sending 2 data values to firebase at the same time. Overcame to problem by sending
+                them into thonny under the same string them splitting the string. </li>
+            <li>Tested the microbit reaction time game and ensured to worked </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk2.png" alt="code wk2">
+        </div>
+        <p>Week 3:</p>
+        <ul class="textlist">
+            <li>Wrote the HTML and CSS code for the navigation bar of the website </li>
+            <li>Overcame the problem of when the mouse was over a navigation option, the navigation box was not
+                darkening. Overcame this by using li:hover. </li>
+            <li>Tested the navigation buttons to make sure they worked </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk3.png" alt="code wk3">
+            <img src="Images/code_2wk3.png" alt="code wk3">
+        </div>
+        <p>Week 4:</p>
+        <ul class="textlist">
+            <li>Wrote the remainder of the homepage for the website </li>
+            <li>Overcame the problem of text running off the screen. Overcame this by adding margins and using flexbox
+                to align the text </li>
+            <li>Tested the viewing the text under different browser dimensions to ensure it stayed on the screen. </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk4.png" alt="code wk4">
+        </div>
+        <p>Week 5:</p>
+        <ul class="textlist">
+            <li>Wrote code to Initialize the firebase database with the JavaScript of my website </li>
+            <li>Overcame the problem of the getDatabase() function not working by realizing I need to import the
+                function from firebase itself, along with other functions. </li>
+            <li>Tested adding, updating, removing and retrieving data from firebase using JavaScript to enhance my
+                knowledge of using firebase with JavaScript, as i previously only knew how to do this using python and
+                needed to learn this for week 6. </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk5.png" alt="code wk5">
+        </div>
+        <p>Week 6:</p>
+        <ul class="textlist">
+            <li>Wrote code to retrieve the data of the last recorded reaction time from firebase and display it on the
+                website. </li>
+            <li>I overcame the problem of not being able to find the latest reaction time value, only being able to find
+                specifically inputted values. I did this by using the for Each function to find the keys of all the
+                firebase data values and adding them to an array, before finding the largest of these values </li>
+            <li>Tested pressing the button on the website to ensure it gave the latest reaction time value </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk6.png" alt="code wk6">
+        </div>
+        <p>Week 7:</p>
+        <ul class="textlist">
+            <li>Created the “What if” webpage in HTML for the what if questions </li>
+            <li>Overcame to problem of an image intruding into text and being too large by changing the image for a more
+                suitable one </li>
+            <li>Tested the Navigation bar on the what if page to ensure it worked correctly </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk7.png" alt="code wk7">
+        </div>
+        <p>Week 8:</p>
+        <ul class="textlist">
+            <li>Wrote code to take in Reaction time values from database and assign them to variables </li>
+            <li>Overcame the problem that directories in my database had been named with hyphens in them. This meant I
+                could not use the method i knew to find the data in the database and assign it into variables. I learned
+                a new method of doing this to overcome the problem </li>
+            <li>I tested the variables to ensure they had the correct values assigned to them from the database. This
+                was done by using console.log to check </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk8_1.PNG" alt="code wk8">
+        </div>
+        <div class="image">
+            <img src="Images/wk8-2.png" alt="code wk8">
+        </div>
+        <div class="image">
+            <img src="Images/wk8-3.PNG" alt="code wk8">
+        </div>
+        <div class="image">
+            <img src="Images/wk8-5.PNG" alt="code wk8">
+        </div>
+        <div class="image">
+            <img src="Images/wk8-6.PNG" alt="code wk8">
+        </div>
+        <div class="image">
+            <img src="Images/wk8-8.PNG" alt="code wk8">
+        </div>
+        <div class="image">
+            <img src="Images/wk8-9.PNG" alt="code wk8">
+        </div>
+        <p>Week 9:</p>
+        <ul class="textlist">
+            <li>Wrote code to take in the users Reaction time, Age, Gender, Time elapsed working and temperature of the
+                area and assign all these to variables </li>
+            <li>Overcame the problem that the reaction time was in milliseconds, and i will need it in seconds for
+                calculations for finding how the users reaction time compares to the average for their age and gender. I
+                did this by creating a string of “0.” and i added the strings of the 0. and the user's reaction time
+                before converting it into a number for calculations </li>
+            <li>Tested the variables to ensure the Reaction time, Age, Gender, Time elapsed working and temperature of
+                the area were correctly assigned to variables. I used console.log to ensure values were correct </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk9.png" alt="code wk9">
+        </div>
+        <p>Week 10:</p>
+        <ul class="textlist">
+            <li>Wrote code to calculate what sport the user should take up based on the parameters. Wrote code to
+                calculate whether the user should take a break from their manual labor based on the parameters for this
+                whatif question of the area around them. Also wrote code to display this on the website </li>
+            <li>Overcame the problem of the reaction time being incorrectly used in calculations. No matter what the
+                time in miliseconds was “0.” was being added to the reaction time to convert to seconds. Fixed this so
+                it was properly converted </li>
+            <li>Tested the whole process of inputting user data and pressing the button on the website to display the
+                answers to the “what if” questions </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/wk10-1.png" alt="code wk10">
+        </div>
+        <div class="image">
+            <img src="Images/wk10-2.png" alt="code wk10">
+        </div>
+        <div class="image">
+            <img src="Images/wk10-3.png" alt="code wk10">
+        </div>
+        <div class="image">
+            <img src="Images/wk10-4.png" alt="code wk10">
+        </div>
+        <div class="image">
+            <img src="Images/wk10-5.png" alt="code wk10">
+        </div>
+        <div class="image">
+            <img src="Images/wk10-6.png" alt="code wk10">
+        </div>
+        <div class="image">
+            <img src="Images/wk10-7.png" alt="code wk10">
+        </div>
+        <p>Week 11:</p>
+        <ul class="textlist">
+            <li>Wrote code to make an LED turn on and make a sound be outputted when the user presses the button on the
+                microbit to input their reaction time. </li>
+            <li>Overcame the problem of the LED being on, and then turning off when the button on the microbit was
+                pressed. This was overcame by switching the values of the 2 digital write pin blocks. </li>
+            <li>Tested the process of pressing the button on the microbit to ensure it turns on the LED and plays a
+                sound when pressed </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk11.png" alt="code wk11">
+        </div>
+        <p>Week 12:</p>
+        <ul class="textlist">
+            <li>Wrote code to make a graph using charts to display the users 10 most recent reaction times. </li>
+            <li>Overcame the problem of the reaction time values not displaying on the graph. The code to run the graph
+                was running before the code to retrieve the reaction time values from the database. I put the code for
+                the chart inside the function to get the data from the database </li>
+            <li>Tested adding new reaction time and making sure the chart updates accordingly </li>
+
+        </ul>
+        <div class="image">
+            <img src="Images/code_wk12_1.png" alt="code wk12">
+        </div>
+        <div class="image">
+            <img src="Images/wk12_2.png" alt="code wk12">
+        </div>
+        <div class="image">
+            <img src="Images/code_wk12_3.png" alt="code wk12">
+        </div>
+        <div class="image">
+            <img src="Images/code_wk12_4png.PNG" alt="code wk12">
+        </div>
+
+        <h2 id="ev">Evaluation</h2>
+        <p>I believe the final artefact met all the requirements of the brief successfully.</p>
+        <p>My projects Basic Requirements went quite well while making my project. I managed to create both digital and analogue inputs and outputs related to wellbeing for my project and send the inputted data to firebase to be stored. I used this inputted data in multiple analysis components. The only real setback during the completion of the basic requirements was that it took time to find a suitable digital output. The artefact meets the basic requirements well. </p>
+        <p>The Advanced requirements also went well. The artefact meets all 3 advanced requirements well. I managed to source an external dataset of reaction times and along with the user's inputted data, a computer model was successfully created to find answers to the what if questions based on three parameters. A graph was only created of the history of the user's reaction times.  </p>
+        <p>While the artefact met all 3 advanced requirements successfully, I believe the code I wrote to do so was quite long, and with more learning could have been more condensed, making it easier to read through and making a simpler flowchart. Having to find multiple variations of reaction time for many age groups caused this. I believe if I were to do the project again, I could do all this in a function using a for/while loop instead of using many if statements. </p>
+        <p>My project has met the needs of the end user. My survey showed that the end user wishes to increase their fitness and concentration. The user also believes that taking up a new sport and increasing their productivity would positively impact their wellbeing </p>
+        <p>My project will suggest a set of new sports for the user to take up depending on age, gender and reaction time. This will help the user increase their fitness. My project will suggest whether the user should take a break from their labour. If taking a break will improve productivity, the system will suggest that, improving the user's productivity. Improving productivity will improve the user's concentration. </p>
+        <p>I believe that my project could be improved by adding a new system of recording reaction time, along with keeping my original system. Using multiple ways of recording the user's reaction time would increase accuracy in recording the user's reaction time, as they could be good or bad at specific “games”/ways of recording reaction time. </p>
+        
+        <h2 id="re">References</h2>
+        <p>McLaughlin, M. (2021) Are fitbits worth it? or should you buy a smartwatch?, Lifewire. Available at: <a href="https://www.lifewire.com/what-is-fitbit-4176010">https://www.lifewire.com/what-is-fitbit-4176010</a> (Accessed: 15 December 2023). </p>
+        <P>Wellbeing activities for Young People (no date) Walk in My Shoes. Available at: <a href="https://www.walkinmyshoes.ie/young-people/resources">https://www.walkinmyshoes.ie/young-people/resources</a> (Accessed: 15 December 2023). </P>
+        <p>Thinkabout (2020) Reaction Time & Reflex Test, App Store. Available at: <a href="https://apps.apple.com/us/app/reaction-time-reflex-test/id1516097125">https://apps.apple.com/us/app/reaction-time-reflex-test/id1516097125</a> (Accessed: 15 December 2023). </p>
+        <p>Pusapati, V. et al. (2023) Effect of age and gender on Reaction Time, Effect of Age and Gender on Reaction Time. Available at: <a href="https://skeenapublishers.com/journal/ijeti/IJETI-04-00051.pdf">https://skeenapublishers.com/journal/ijeti/IJETI-04-00051.pdf</a> (Accessed: 18 December 2023). </p>
+        <p>Lewis, V. (2023) How taking breaks can actually improve productivity, LinkedIn. Available at: <a href="https://www.linkedin.com/pulse/how-taking-breaks-can-actually-improve-productivity-victoria-lewis#:~:text=The%20review%20included%2022%20studies,accuracy%2C%20productivity%2C%20and%20creativity">https://www.linkedin.com/pulse/how-taking-breaks-can-actually-improve-productivity-victoria-lewis#:~:text=The%20review%20included%2022%20studies,accuracy%2C%20productivity%2C%20and%20creativity</a> (Accessed: 18 December 2023). </p>
+        <p>Roach, A. et al. (2014) The effects of exercise on Reaction Time, Microsoft Word - 601-group-1.doc. Available at: <a href="https://minds.wisconsin.edu/bitstream/handle/1793/80032/The%20Effect%20of%20Exercise%20on%20Reaction%20Time.pdf?sequence=1">https://minds.wisconsin.edu/bitstream/handle/1793/80032/The%20Effect%20of%20Exercise%20on%20Reaction%20Time.pdf?sequence=1</a> (Accessed: 18 December 2023). </p>
+        <p>Milroy, T.H. (1909) Fatigue studied in reaction time experiments - milroy - 1909 - ..., FATIGUE STUDIED IN REACTION TIME EXPERIMENTS. Available at: <a href="https://physoc.onlinelibrary.wiley.com/doi/pdf/10.1113/expphysiol.1909.sp000040">https://physoc.onlinelibrary.wiley.com/doi/pdf/10.1113/expphysiol.1909.sp000040</a> (Accessed: 18 December 2023). </p>
+        <p>Top 5 sports requiring lesser reaction time with more precision (2012) Sportskeeda. Available at: <a href="https://www.sportskeeda.com/table-tennis/top-5-sports-requiring-lesser-reaction-time-with-more-precision">https://www.sportskeeda.com/table-tennis/top-5-sports-requiring-lesser-reaction-time-with-more-precision</a> (Accessed: 18  December 2023). </p>
+        <p>Wood, R. (2010) Top ranked reaction time sports, Top Reaction Time Sports. Available at: <a href="https://www.topendsports.com/fitness/sports/reaction-time-tes.htm">https://www.topendsports.com/fitness/sports/reaction-time-tes.htm</a> (Accessed: 18 December 2023). </p>
+       
+        <h2 id="sm">Summary Word Count</h2>
+        <p>Meeting the brief: 0 words</p>
+        <p>Investigation: 449 words</p>
+        <p>Plan and Design: 438 words</p>
+        <p>Create: 899 words</p>
+        <p>Evaluation: 400 words</p>
+        <p>Total Word Count: 2186 words</p>
+    </div>
+</body>
+
+</html>

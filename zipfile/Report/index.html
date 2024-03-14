@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Artefact/style.css">
+    <title>Main Page</title>
+</head>
+
+<body class="">
+    <header class="header">
+        <div class="">
+            <div class="">
+                <ul class="list1">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../Artefact/whatif.html">What if</a></li>
+                    <li><a href="../Artefact/mockgraph.html">Past Results</a></li>
+                    <li><a href="text.html">Project Theroy</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </header>
+    <div class="mainbody">
+        <div class="toptext">
+            <h1>Homepage</h1>
+        </div>
+        <div class="top">
+            <div class="image">
+                <img src="Images/wellbeing.png" alt="Wellbeing spelled out">
+            </div>
+            <div class="text1">
+                <p>Wellbeing refers to the The state of being healthy and happy.Computer science and wellbeing are
+                    vastly interconneted in the modern world.I have created this website
+                    to help your wellbeing. It does this by the Reaction time game. Your reaction time goes to make the
+                    results of to "what if" questions that decide what sport you should
+                    take up and whether taking a break would improve your productivity. This covers the areas of
+                    Exercies and Fitness, Health Monitoring, Improving Concentartion levels and Improvinh hydration and
+                    Motivation levels.
+                </p>
+                <p>
+                    To play, Press Any button on a connected microbit. Then look at the connected microbit.The 5 lights
+                    will light up
+                    gradually before
+                    turning off after a random time. You then need to press anu button again on microbit as quickly
+                    as possible to record your reaction time.
+                </p>
+            </div>
+        </div>
+        <div class="microbittext">
+            <p>Press the button to find your last attempts reaction time</p>
+        </div>
+        <div class="form">
+            <button id="Button">Button</button>
+        </div>
+        <div class="rtimee">
+            <p>Your Reaction time was: </p>
+            <p id="rtime">
+            <p> seconds</p>
+        </div>
+
+        <div class="bottomtext">
+            <p>Want to see how your results could answer the questions:
+                "What if the user was to take up a sport?
+                and "What if the user was to take a break from their manual labour?"
+                check out the <a href="../Artefact/whatif.html">What if</a></li> page.</p>
+            <p>Want to see all your past results? check out the
+                <a href="../Artefact/mockgraph.html">Past Results</a> page
+            </p>
+
+
+        </div>
+    </div>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyADFbm7eOAYc9ikVduSPEF_i_sKDDpfRY8",
+            authDomain: "fire10db-5cdc9.firebaseapp.com",
+            databaseURL: "https://fire10db-5cdc9-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "fire10db-5cdc9",
+            storageBucket: "fire10db-5cdc9.appspot.com",
+            messagingSenderId: "754388872821",
+            appId: "1:754388872821:web:b3ff18d3df16964eac123c"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, get, child, update, remove }
+            from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+
+        const db = getDatabase();
+
+        //---------------------------------------------------
+        let rtime = document.getElementById('Button');
+        rtime.addEventListener("click", myFunction1);
+
+        let ReactionTime = 0;
+        let numsset = [];
+        let LargestValue = 0;
+        const dbRef = ref(db);
+        let fullvalue = 0
+
+
+
+
+        get(child(dbRef, 'ProjReactionLog')).then((snapshot) => {
+            //alert("defgH")
+            if (snapshot.exists()) {
+                console.log(snapshot)
+                snapshot.forEach((sn) => {
+                    //console.log(sn.key)
+                    numsset.push(Number(sn.key))
+                    //console.log(numsset)
+
+                })
+                //console.log(get(snapshot, '1704117443'))
+
+                // ReactionTime = snapshot.val().
+
+
+            }
+            else {
+                alert("no exist 1")
+            }
+            LargestValue = numsset.reduce((a, b) => Math.max(a, b), -Infinity);
+            console.log("LV", LargestValue)
+            fullvalue = "ProjReactionLog/" + String(LargestValue)
+            console.log(fullvalue)
+
+            secondfunction()
+
+        })
+
+
+        function secondfunction() {
+            get(child(dbRef, fullvalue)).then((snapshot) => {
+                //alert("LISRTEBH")
+                if (snapshot.exists()) {
+                    //console.log("awswssss")
+                    ReactionTime = snapshot.val().ReactionTime;
+                    ReactionTime = ReactionTime * 0.001
+
+                }
+                else {
+                    alert("no exist 2")
+                }
+            })
+        }
+
+
+        function myFunction1() {
+            document.getElementById("rtime").innerHTML = ReactionTime;
+        }
+
+    </script>
+</body>
+
+</html>
